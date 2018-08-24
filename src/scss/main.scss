@@ -1,0 +1,73 @@
+// ALWAYS THE LATEST BOOSTRAP
+@import '../../node_modules/bootstrap/scss/bootstrap-reboot';
+@import '../../node_modules/bootstrap/scss/bootstrap';
+@import '../../node_modules/bootstrap/scss/bootstrap-grid';
+
+
+
+
+
+$font-stack:    Helvetica, sans-serif;
+
+$primary-color: #333333; 
+
+$text-color: #000000;
+
+
+body{
+
+	
+	//background-color:  $primary-color;
+	
+	color: $text-color;
+
+	font: 100% $font-stack;
+
+
+}
+
+.bg-dark{
+
+  background-color: #2b2b2b !important;
+
+}
+
+a {
+	
+	&:visited {
+        color: $text-color;
+    }
+
+
+}
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+
+/* test */
+
+.box {
+  width: 300px;
+  height: 300px;
+  margin: 200px 50px;
+  background: red;
+  opacity:0;
+
+}
+
+.first-box {
+  width: 300px;
+  height: 10px;
+  margin: 200px 50px;
+  background: red;
+  opacity:0;
+
+}
+
+
