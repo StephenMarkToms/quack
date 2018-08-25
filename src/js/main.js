@@ -11,11 +11,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
       initBarba();
 
-      
-
-
-
-        
 
 
 
@@ -28,6 +23,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 });//end loaded
+
+
 
 function scrollMagic(){
 
@@ -70,6 +67,17 @@ function handleAnimations(){
           TweenMax.from(".portraits-hero", .75, {delay: .5, y: "+=50", alpha: 0, ease: Power3.easeInOut});
           TweenMax.from(".couples-hero", .75, {delay: .7, y: "+=50", alpha: 0, ease: Power3.easeInOut});
           TweenMax.from(".weddings-hero", .75, {delay: 1, y: "+=50", alpha: 0, ease: Power3.easeInOut});
+          var mySplitText = new SplitText(".portraits-hero p", {type:"chars,words, lines"}),
+          tl = new TimelineLite({delay:0.5});
+          tl.staggerFrom(mySplitText.chars, 0.5, {y:100, opacity:0}, 0.02);
+
+          var mySplitText = new SplitText(".couples-hero p", {type:"chars,words, lines"}),
+          t2 = new TimelineLite({delay:0.7});
+          t2.staggerFrom(mySplitText.chars, 0.5, {y:100, opacity:0}, 0.02);
+
+          var mySplitText = new SplitText(".weddings-hero p", {type:"chars,words, lines"}),
+          t3 = new TimelineLite({delay:1});
+          t3.staggerFrom(mySplitText.chars, 0.5, {y:100, opacity:0}, 0.02);
           
       },
       onEnterCompleted: function() {
@@ -79,7 +87,7 @@ function handleAnimations(){
       onLeave: function() {
           // A new Transition toward a new page has just started.
           console.log("leave");
-          TweenMax.to("#main-content", .5, { y: "-=100", alpha: 0});
+          TweenMax.to("#main-content", .5, { y: "-=40", alpha: 0});
           
 
       },
@@ -114,6 +122,40 @@ function handleAnimations(){
     });
 
 
+    var Portraits = Barba.BaseView.extend({
+      namespace: 'Portraits',
+      onEnter: function() {
+
+
+          // The new Container is ready and attached to the DOM.
+          console.log("enter");
+
+          $( ".mobile-hero" ).removeClass( "d-none" );
+          $( ".mobile-header" ).removeClass( "d-none" );
+
+          TweenMax.from("#main-content", .5, {delay: .5, alpha: 0, ease: Power3.easeInOut});
+          var mySplitText = new SplitText(".mobile-header", {type:"chars,words, lines"}),
+          tl = new TimelineLite({delay:0.5});
+          tl.staggerFrom(mySplitText.chars, 0.5, {y:100, opacity:0}, 0.02);
+          
+      },
+      onEnterCompleted: function() {
+          // The Transition has just finished.
+          
+      },
+      onLeave: function() {
+          // A new Transition toward a new page has just started.
+          console.log("leave");
+          TweenMax.to("#main-content", .5, { y: "-=100", alpha: 0, ease: Power3.easeInOut});
+          
+
+      },
+      onLeaveCompleted: function() {
+          // The Container has just been removed from the DOM.
+      }
+    });
+
+
 
 
 
@@ -122,6 +164,7 @@ function handleAnimations(){
       // Don't forget to init the view!
       Homepage.init();
       About.init();
+      Portraits.init();
       
 
 

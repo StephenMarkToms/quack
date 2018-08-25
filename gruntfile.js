@@ -48,7 +48,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'public/assets/js/script.min.js': 'src/js/*.js',
+                    'public/assets/js/script.min.js': ['src/js/vendor/*.js', 'src/js/*.js'],
                     
                 }
 
@@ -80,18 +80,7 @@ module.exports = function(grunt) {
 
 
 
-            }, //includes
-
-        // imagemin:{
-        //  dynamic: {                         // Another target 
-        //       files: [{
-        //         expand: true,                  // Enable dynamic expansion 
-        //         cwd: 'src/imgs/',                   // Src matches are relative to this path 
-        //         src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match 
-        //         dest: 'deploy/assets/imgs/'                  // Destination path prefix 
-        //       }]
-        //     }
-        // },
+            },
         cachebreaker: {
             css: {
                 options: {
@@ -158,13 +147,6 @@ module.exports = function(grunt) {
                 files: ['src/**/*.js'],
                 tasks: ['uglify']
             },
-            // imgs: {
-            //     files: ['public/assets/**/*'],
-            //     tasks: ['uglify', 'cachebreaker:imgs']
-
-            // },
-
-
             pdfs: {
                 files: ['public/assets/pdfs/**/*.pdf'],
                 tasks: ['uglify']
@@ -175,22 +157,8 @@ module.exports = function(grunt) {
                 tasks: ['includes:deploy']
 
             }
-        } // watch 
-    }); // grunt.initConfig
-    // const imagemin = require('imagemin');
-    // const imageminJpegtran = require('imagemin-jpegtran');
-    // const imageminPngquant = require('imagemin-pngquant');
-    // const imageminSvgo = require('imagemin-svgo');
-    // imagemin(['src/imgs/**/*.{jpg,png,svg}'], 'public/assets/imgs', {
-    //     plugins: [
-    //         imageminJpegtran(),
-    //         imageminSvgo({ removeViewBox: false }),
-    //         imageminPngquant({ quality: '65-80' })
-    //     ],
-    // }).then(files => {
-    //     console.log('Images optimized');
-    //     //=> [{data: <Buffer 89 50 4e …>, path: 'build/images/foo.jpg'}, …]
-    // });
+        } 
+    }); 
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');

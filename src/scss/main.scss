@@ -5,20 +5,44 @@
 @import url('https://fonts.googleapis.com/css?family=Amethysta|Libre+Baskerville|Ramaraja');
 
 
+@font-face {
+
+    font-family: "bloom";
+    src: url("fonts/Gloss_And_Bloom.woff") format("woff");
+    src: url("fonts/Gloss_And_Bloom.ttf") format("ttf");
+
+}
 
 
-$font-1: 'Libre Baskerville',
+@font-face {
+
+    font-family: "baskerville";
+    src: url("fonts/baskerville.ttf") format("ttf");
+
+}
+
+
+@font-face {
+
+    font-family: "sabon";
+    src: url("fonts/SabonLTStd-Italic.ttf") format("ttf");
+
+}
+
+
+
+$font-1: 'baskerville',
 serif;
-$font-2: 'Amethysta',
+$font-2: 'sabon',
 serif;
-$font-3: 'Ramaraja',
+$font-3: 'bloom',
 serif;
 
-$primary-color: #eaeae9;
+$primary-color: #dbb8ad;
 
-$secondary-color: #f1eeed;
+$secondary-color: #fae6de;
 
-$supporting-color: #cccccc;
+$supporting-color: #cda99d;
 
 $text-color: #000000;
 
@@ -84,7 +108,7 @@ body {
 
 .navbar-brand {
     font-family: 'baskerville', serif;
-    font-size: 2.6em;
+    font-size: 2em;
     font-weight: 200;
     letter-spacing: .2em;
 }
@@ -100,7 +124,7 @@ body {
 
     padding-right: 0;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1em;
     font-weight: inherit;
     padding-left: 0;
     margin-right: 2em;
@@ -142,7 +166,7 @@ a:hover {
         margin: 51vh 0 0 0;
         color: white;
         padding: 0;
-        font-size: 2em;
+        font-size: 3em;
         font-style: italic;
         text-align: center;
     }
@@ -174,6 +198,36 @@ a:hover {
     background-position: 30%;
     overflow: hidden;
 }
+
+
+
+.mobile-hero{
+
+
+    overflow: hidden;
+    object-fit: cover;
+    height: 96vh;
+    width: 100vw;
+
+}
+
+.mobile-header{
+
+    font-size: 2em;
+    position: absolute;
+    top: 57%;
+
+}
+
+.image-tile{
+
+    box-shadow: 0 2em #fae6de;
+    margin-bottom: 3em;
+    width: 100vw;
+
+}
+
+
 
 @media (max-width: 576px) {
 
