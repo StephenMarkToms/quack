@@ -2,72 +2,201 @@
 @import '../../node_modules/bootstrap/scss/bootstrap-reboot';
 @import '../../node_modules/bootstrap/scss/bootstrap';
 @import '../../node_modules/bootstrap/scss/bootstrap-grid';
+@import url('https://fonts.googleapis.com/css?family=Amethysta|Libre+Baskerville|Ramaraja');
 
 
 
 
+$font-1: 'Libre Baskerville',
+serif;
+$font-2: 'Amethysta',
+serif;
+$font-3: 'Ramaraja',
+serif;
 
-$font-stack:    Helvetica, sans-serif;
+$primary-color: #eaeae9;
 
-$primary-color: #333333; 
+$secondary-color: #f1eeed;
+
+$supporting-color: #cccccc;
 
 $text-color: #000000;
 
 
-body{
 
-	
-	//background-color:  $primary-color;
-	
-	color: $text-color;
+body {
 
-	font: 100% $font-stack;
 
+    background-color: $primary-color;
+
+    color: $text-color;
+
+    font: 100% $font-1;
+}
+
+.bg-dark {
+
+    background-color: #2b2b2b !important;
+}
+
+
+
+.vertical-center {
+    min-height: 100%;
+    /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh;
+    /* These two lines are counted as one :-)       */
+    display: flex;
+    align-items: center;
+}
+
+
+.header-bg {
+
+    background-color: $secondary-color;
+    min-height: 21vh;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    border-bottom: $supporting-color solid 4px;
 
 }
 
-.bg-dark{
 
-  background-color: #2b2b2b !important;
+.navbar {
 
+    background: $secondary-color;
+
+    .nav-link {
+
+        padding-right: 0;
+        text-align: center;
+        font-size: 1.5em;
+        font-weight: inherit;
+        padding-left: 0;
+    }
 }
+
+
+
+.navbar-brand {
+    font-family: 'baskerville', serif;
+    font-size: 2.6em;
+    font-weight: 200;
+    letter-spacing: .2em;
+}
+
+.nav-link {
+
+    font-size: 1em;
+    padding: 1em;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+
+    padding-right: 0;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: inherit;
+    padding-left: 0;
+    margin-right: 2em;
+}
+
+.logo-sub {
+
+    letter-spacing: .02em;
+    position: absolute;
+    top: 3.3em;
+    left: 3.2em;
+    top: 4.3em;
+    font-size: 0.6em;
+}
+
 
 a {
-	
-	&:visited {
-        color: $text-color;
+
+    color: rgba(55, 55, 55, 0.9);
+}
+
+
+a:hover {
+
+    color: black;
+    text-decoration: none;
+}
+
+
+.hero-img {
+
+
+    height: 78vh;
+    margin-bottom: 0;
+
+    p {
+
+        font: 100% $font-1;
+        margin: 51vh 0 0 0;
+        color: white;
+        padding: 0;
+        font-size: 2em;
+        font-style: italic;
+        text-align: center;
+    }
+}
+
+.portraits-hero {
+
+    background-image: url("../imgs/index/portraits-hero.png");
+    background-size: 50vh;
+    background-repeat: no-repeat;
+    background-position: 30%;
+    overflow: hidden;
+}
+
+.couples-hero {
+
+    background-image: url("../imgs/index/couples-hero.png");
+    background-size: 50vh;
+    background-repeat: no-repeat;
+    background-position: 30%;
+    overflow: hidden;
+}
+
+.weddings-hero {
+
+    background-image: url("../imgs/index/weddings-hero.png");
+    background-size: 50vh;
+    background-repeat: no-repeat;
+    background-position: 30%;
+    overflow: hidden;
+}
+
+@media (max-width: 576px) {
+
+    .logo-sub {
+        top: 3.3em;
+    }
+
+    .hero-img {
+
+        p {
+
+            transform: rotate(-90deg);
+            margin: 86vw 0 1em -1em;
+            width: 59vw;
+        }
+    }
+
+    .navbar{
+
+      border-bottom: $supporting-color solid 7px;
+      padding-bottom: 1.5em;
+
     }
 
 
 }
-
-.vertical-center {
-  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-  min-height: 100vh; /* These two lines are counted as one :-)       */
-
-  display: flex;
-  align-items: center;
-}
-
-
-/* test */
-
-.box {
-  width: 300px;
-  height: 300px;
-  margin: 200px 50px;
-  background: red;
-  opacity:0;
-
-}
-
-.first-box {
-  width: 300px;
-  height: 10px;
-  margin: 200px 50px;
-  background: red;
-  opacity:0;
-
-}
-
-

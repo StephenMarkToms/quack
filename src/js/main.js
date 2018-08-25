@@ -2,7 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", function() {
  
-  $( document ).ready(function() {
+  $(window).load(function() {
 
         
     
@@ -64,7 +64,12 @@ function handleAnimations(){
       onEnter: function() {
           // The new Container is ready and attached to the DOM.
           console.log("enter");
-          TweenMax.from("#main-content", 1, {delay: .5, x: "+=100", alpha: 0, ease: Elastic.easeOut.config(1, 0.3)});
+          $( ".portraits-hero" ).removeClass( "d-none" );
+          $( ".couples-hero" ).removeClass( "d-none" );
+          $( ".weddings-hero" ).removeClass( "d-none" );
+          TweenMax.from(".portraits-hero", .75, {delay: .5, y: "+=50", alpha: 0, ease: Power3.easeInOut});
+          TweenMax.from(".couples-hero", .75, {delay: .7, y: "+=50", alpha: 0, ease: Power3.easeInOut});
+          TweenMax.from(".weddings-hero", .75, {delay: 1, y: "+=50", alpha: 0, ease: Power3.easeInOut});
           
       },
       onEnterCompleted: function() {
@@ -74,7 +79,7 @@ function handleAnimations(){
       onLeave: function() {
           // A new Transition toward a new page has just started.
           console.log("leave");
-          TweenMax.to("#main-content", 1, { x: "-=100", alpha: 0});
+          TweenMax.to("#main-content", .5, { y: "-=100", alpha: 0});
           
 
       },
@@ -89,7 +94,7 @@ function handleAnimations(){
       onEnter: function() {
           // The new Container is ready and attached to the DOM.
           console.log("enter");
-          TweenMax.from("#main-content", 1, {delay: .5, x: "+=100", alpha: 0, ease: Elastic.easeOut.config(1, 0.3)});
+          TweenMax.from("#main-content", .5, {delay: .5, y: "+=100", alpha: 0, ease: Power3.easeInOut});
           
       },
       onEnterCompleted: function() {
@@ -99,7 +104,7 @@ function handleAnimations(){
       onLeave: function() {
           // A new Transition toward a new page has just started.
           console.log("leave");
-          TweenMax.to("#main-content", 1, { x: "-=100", alpha: 0});
+          TweenMax.to("#main-content", .5, { y: "-=100", alpha: 0, ease: Power3.easeInOut});
           
 
       },
