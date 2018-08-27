@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       initBarba();
 
-
+      //scrollMagic();
 
 
 
@@ -31,13 +31,13 @@ function scrollMagic(){
   var controller = new ScrollMagic.Controller();
   var duration = 0.75;
   var animations = [
-    {x:200, opacity:1, height: 300},
+    {y: "+=50", scale: 1, opacity: 0},
     {rotation:360, opacity:1},
     {scale:0.5, opacity:1, x:400}
   ]
-  $('[data-scrollmagic]').each(function(index) {
+  $('[animate-fade]').each(function(index) {
     var tl = new TimelineMax();
-    tl.to(this, duration, animations[index]);
+    tl.from(this, duration, animations[0]);
 
     var scene = new ScrollMagic.Scene({
       triggerElement: this,
@@ -45,8 +45,25 @@ function scrollMagic(){
       reverse: false
     })
       .setTween(tl)
-      .addIndicators()
       .addTo(controller);
+  });
+
+
+  // Create scenes for splittext
+  $("[animate-text]").each(function(index) {
+    var splitone = new SplitText(this, {type:"chars,words, lines"}),
+    tl = new TimelineLite({delay:0.5});
+    var tl = new TimelineMax();
+    tl.staggerFrom(splitone.chars, 0.5, {y: 80, opacity: 0, ease: Power4.easeOut}, 0.01);
+
+    new ScrollMagic.Scene({
+        triggerElement: this,
+        triggerHook: 0.6,
+        reverse: false
+      })
+      .setTween(tl)
+      .addTo(controller);
+
   });
 
 
@@ -79,6 +96,8 @@ function handleAnimations(){
           t3 = new TimelineLite({delay:1});
           t3.staggerFrom(mySplitText.chars, 0.5, {y:100, opacity:0}, 0.02);
           
+          scrollMagic();
+
       },
       onEnterCompleted: function() {
           // The Transition has just finished.
@@ -137,6 +156,8 @@ function handleAnimations(){
           var mySplitText = new SplitText(".mobile-header", {type:"chars,words, lines"}),
           tl = new TimelineLite({delay:0.5});
           tl.staggerFrom(mySplitText.chars, 0.5, {y:100, opacity:0}, 0.02);
+
+          scrollMagic();
           
       },
       onEnterCompleted: function() {
