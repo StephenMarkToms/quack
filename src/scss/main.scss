@@ -275,6 +275,15 @@ a:hover {
 
 }
 
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: $supporting-color;
+  width: 114%;
+  height: 100%;
+}
+
 .vertical-text{
 
 
