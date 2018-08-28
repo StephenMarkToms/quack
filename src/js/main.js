@@ -180,7 +180,7 @@ function handleAnimations() {
         onLeave: function() {
             // A new Transition toward a new page has just started.
             console.log("leave");
-            TweenMax.to("#main-content", .5, { y: "-=40", alpha: 0 });
+            TweenMax.to("#main-content", .5, { y: "-=40", alpha: 0, overwrite: false, immediateRender: false });
 
 
         },
@@ -195,7 +195,7 @@ function handleAnimations() {
         onEnter: function() {
             // The new Container is ready and attached to the DOM.
             console.log("enter");
-            TweenMax.from("#main-content", .5, { delay: .5, y: "+=100", alpha: 0, ease: Power3.easeInOut });
+            TweenMax.from("#main-content", .5, { delay: .5, y: "+=100", alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false });
 
         },
         onEnterCompleted: function() {
@@ -205,7 +205,7 @@ function handleAnimations() {
         onLeave: function() {
             // A new Transition toward a new page has just started.
             console.log("leave");
-            TweenMax.to("#main-content", .5, { y: "-=100", alpha: 0, ease: Power3.easeInOut });
+            TweenMax.to("#main-content", .5, { y: "-=100", alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false });
 
 
         },
@@ -229,7 +229,7 @@ function handleAnimations() {
             $(".body-content").removeClass("d-none");
 
 
-            TweenMax.from("#main-content", .5, { delay: .5, alpha: 0, ease: Power3.easeInOut });
+            TweenMax.from("#main-content", .5, { delay: .5, alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false });
             var mySplitText = new SplitText(".mobile-header", { type: "chars,words, lines" }),
                 tl = new TimelineLite({ delay: 0.5 });
             tl.staggerFrom(mySplitText.chars, 0.5, { y: 100, opacity: 0 }, 0.02);
@@ -246,7 +246,7 @@ function handleAnimations() {
         onLeave: function() {
             // A new Transition toward a new page has just started.
             console.log("leave");
-            TweenMax.to("#main-content", 1, { y: "+=30", alpha: 0, ease: Power3.easeInOut });
+            TweenMax.to("#main-content", 1, { y: "+=30", alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false });
 
 
         },
@@ -339,7 +339,7 @@ function initBarba() {
     handleAnimations();
 
     //disable cache so that animations always
-    Barba.Pjax.cacheEnabled = true;
+    Barba.Pjax.cacheEnabled = false;
 
     //Please note, the DOM should be ready
     Barba.Pjax.start();
