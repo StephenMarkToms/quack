@@ -339,7 +339,7 @@ function initBarba() {
     handleAnimations();
 
     //disable cache so that animations always
-    Barba.Pjax.cacheEnabled = false;
+    Barba.Pjax.cacheEnabled = true;
 
     //Please note, the DOM should be ready
     Barba.Pjax.start();
