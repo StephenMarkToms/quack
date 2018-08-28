@@ -52,9 +52,25 @@ function scrollMagic(){
   // Create scenes for splittext
   $("[animate-text]").each(function(index) {
     var splitone = new SplitText(this, {type:"chars,words, lines"}),
-    tl = new TimelineLite({delay:0.5});
+    tl = new TimelineLite({delay:1});
     var tl = new TimelineMax();
     tl.staggerFrom(splitone.chars, 0.5, {y: 80, opacity: 0, ease: Power4.easeOut}, 0.01);
+
+    new ScrollMagic.Scene({
+        triggerElement: this,
+        triggerHook: 0.6,
+        reverse: false
+      })
+      .setTween(tl)
+      .addTo(controller);
+
+  });
+
+  $("[animate-text-roll]").each(function(index) {
+    var splitone = new SplitText(this, {type:"chars,words, lines"}),
+    tl = new TimelineLite({delay:1});
+    var tl = new TimelineMax();
+    tl.staggerFrom(splitone.chars, 0.8, {opacity:0, scale:0, y:80, rotationX:180, transformOrigin:"0% 50% -50",  ease:Back.easeOut}, 0.01, "+=0");
 
     new ScrollMagic.Scene({
         triggerElement: this,
@@ -96,7 +112,10 @@ function scrollMagic(){
       .addTo(controller);
   });
 
-  
+
+ 
+
+
 
 
 
@@ -204,7 +223,7 @@ function handleAnimations(){
       onLeave: function() {
           // A new Transition toward a new page has just started.
           console.log("leave");
-          TweenMax.to("#main-content", .5, { y: "-=100", alpha: 0, ease: Power3.easeInOut});
+          TweenMax.to("#main-content", .75, { y: "-=30", alpha: 0, ease: Power3.easeInOut});
           
 
       },
