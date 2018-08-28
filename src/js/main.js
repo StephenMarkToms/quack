@@ -32,7 +32,7 @@ function scrollMagic(){
   var duration = 0.75;
   var animations = [
     {y: "+=50", scale: 1, opacity: 0},
-    {rotation:360, opacity:1},
+    {height: 0, opacity:0},
     {scale:0.5, opacity:1, x:400}
   ]
   $('[animate-fade]').each(function(index) {
@@ -65,6 +65,38 @@ function scrollMagic(){
       .addTo(controller);
 
   });
+
+  $("[animate-text-loop]").each(function(index) {
+    var splitone = new SplitText(this, {type:"chars,words, lines"}),
+    tl = new TimelineLite({delay: .5});
+    var tl = new TimelineMax();
+    tl.staggerFrom(splitone.chars, 3, {delay: .5, y: 80, opacity: 0, ease: Power4.easeOut, repeat: -1}, 0.01);
+
+    new ScrollMagic.Scene({
+        triggerElement: this,
+        triggerHook: 0.6,
+        reverse: false
+      })
+      .setTween(tl)
+      .addTo(controller);
+
+  });
+
+
+  $('[animate-line]').each(function(index) {
+    var tl = new TimelineMax();
+    tl.from(this, duration, animations[1]);
+
+    var scene = new ScrollMagic.Scene({
+      triggerElement: this,
+      triggerHook: 0.6,
+      reverse: false
+    })
+      .setTween(tl)
+      .addTo(controller);
+  });
+
+  
 
 
 
