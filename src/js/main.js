@@ -31,11 +31,44 @@ function scrollMagic() {
     var animations = [
         { y: "+=50", scale: 1, opacity: 0 },
         { height: 0, opacity: 0 },
-        { scale: 0.5, opacity: 1, x: 400 }
+        { delay: .75, y: "+=50", scale: 1, opacity: 0 },
+        { alpha: 0, width: 0 }
     ]
+
+
+
+    $('[animate-width]').each(function(index) {
+        var tl = new TimelineMax();
+        tl.from(this, .75, animations[3]);
+
+        var scene = new ScrollMagic.Scene({
+                triggerElement: this,
+                triggerHook: 0.8,
+                reverse: false
+            })
+            .setTween(tl)
+            .addTo(controller);
+    });
+
+
+
     $('[animate-fade]').each(function(index) {
         var tl = new TimelineMax();
         tl.from(this, duration, animations[0]);
+
+        var scene = new ScrollMagic.Scene({
+                triggerElement: this,
+                triggerHook: 0.8,
+                reverse: false
+            })
+            .setTween(tl)
+            .addTo(controller);
+    });
+
+
+    $('[animate-fade-2]').each(function(index) {
+        var tl = new TimelineMax();
+        tl.from(this, .75, animations[2]);
 
         var scene = new ScrollMagic.Scene({
                 triggerElement: this,
@@ -72,7 +105,7 @@ function scrollMagic() {
 
         new ScrollMagic.Scene({
                 triggerElement: this,
-                triggerHook: 0.6,
+                triggerHook: .8,
                 reverse: false
             })
             .setTween(tl)
@@ -88,7 +121,7 @@ function scrollMagic() {
 
         new ScrollMagic.Scene({
                 triggerElement: this,
-                triggerHook: 0.6,
+                triggerHook: 0.8,
                 reverse: false
             })
             .setTween(tl)
@@ -103,7 +136,7 @@ function scrollMagic() {
 
         var scene = new ScrollMagic.Scene({
                 triggerElement: this,
-                triggerHook: 0.6,
+                triggerHook: 0.8,
                 reverse: false
             })
             .setTween(tl)
