@@ -10,8 +10,31 @@
     <link rel="stylesheet" href="./assets/css/main.css?rel=1461884900147">
     <link rel=stylesheet href=https://use.fontawesome.com/releases/v5.1.0/css/all.css integrity=sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt crossorigin=anonymous>
   </head>
+  
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#000"
+    },
+    "button": {
+      "background": "#f1d600"
+    }
+  },
+  "content": {
+    "message": "This website uses cookies."
+  }
+})});
+</script>
+
   <body>
- 
+  
+
+
+
   <nav class="navbar navbar-expand-md fixed-top ml-0  mt-xs-3 mr-xs-2">
       <a class="navbar-brand" href="index.html">SMT<small><sub class="logo-sub">design</sub></small></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
@@ -102,6 +125,8 @@
 
                 </div>
 
+                <hr animate-width>
+
                 <div class="row mt-3">
 
                     <div class="col">
@@ -131,6 +156,34 @@
                             <button type="button" class="btn btn-lg btn-block  my-5" animate-fade>SUBMIT</button>
                         </form>
 
+                    </div>
+
+                </div>
+
+                <div class="row my-5 py-5">
+
+                    <div class="col text-center">
+
+                        <h3 class="font-large" animate-text-roll>See More Works</h3>
+
+                    </div>
+
+                </div>
+
+                <hr class="pb-5 mb-5" animate-width>
+
+                <div class="row mt-3">
+
+                    <div class="col-4">
+                        <img src="./assets/imgs/index/portraits-hero.png" class="w-100" animate-fade-2>
+                    </div>
+
+                    <div class="col-4">
+                        <img src="./assets/imgs/index/couples-hero.png" class="w-100" animate-fade-2>
+                    </div>
+
+                    <div class="col-4">
+                        <img src="./assets/imgs/index/weddings-hero.png" class="w-100" animate-fade-2>
                     </div>
 
                 </div>
@@ -246,6 +299,8 @@
                                 <input class="form-control" id="example-tel-input" type="tel" value="(555)-555-5555">
                                 <p class="pt-3 contact-label">Email:</p>
                                 <input class="form-control" id="example-tel-input" type="tel" value="hello@gmail.com">
+                                <label for="message" class="pt-3">Message:</label>
+                                <textarea class="form-control" id="message" rows="7"></textarea>
                                 <button type="button" class="btn btn-lg btn-block  my-5">SUBMIT</button>
                             </form>
                         </div>

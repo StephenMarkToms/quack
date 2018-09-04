@@ -72,7 +72,7 @@ function scrollMagic() {
 
         var scene = new ScrollMagic.Scene({
                 triggerElement: this,
-                triggerHook: 0.6,
+                triggerHook: 0.8,
                 reverse: false
             })
             .setTween(tl)
