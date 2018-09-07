@@ -55,20 +55,35 @@ function scrollMagic() {
     });
 
 
-    // $('[animate-width]').each(function(index) {
-    //     var tl = new TimelineMax();
-    //     tl.from(this, .75, animations[3]);
+    $('[animate-width]').each(function(index) {
+        var tl = new TimelineMax();
+        tl.from(this, .75, animations[3]);
 
-    //     var scene = new ScrollMagic.Scene({
-    //             triggerElement: this,
-    //             triggerHook: 0.8,
-    //             reverse: false
-    //         })
-    //         .setTween(tl)
-    //         .addTo(controller);
-    // });
+        var scene = new ScrollMagic.Scene({
+                triggerElement: this,
+                triggerHook: 0.8,
+                reverse: false
+            })
+            .setTween(tl)
+            .addTo(controller);
+    });
 
 
+    $("[animate-text-roll]").each(function(index) {
+        var splitone = new SplitText(this, { type: "chars,words, lines" }),
+            tl = new TimelineLite({ delay: 1 });
+        var tl = new TimelineMax();
+        tl.staggerFrom(splitone.chars, 0.8, { opacity: 0, scale: 0, y: 80, rotationX: 180, transformOrigin: "0% 50% -50", ease: Back.easeOut }, 0.01, "+=0");
+
+        var scene = new ScrollMagic.Scene({
+                triggerElement: this,
+                triggerHook: .8,
+                reverse: false
+            })
+            .setTween(tl)
+            .addTo(controller);
+
+    });
 
    
 
@@ -104,21 +119,7 @@ function scrollMagic() {
 
     // });
 
-    // $("[animate-text-roll]").each(function(index) {
-    //     var splitone = new SplitText(this, { type: "chars,words, lines" }),
-    //         tl = new TimelineLite({ delay: 1 });
-    //     var tl = new TimelineMax();
-    //     tl.staggerFrom(splitone.chars, 0.8, { opacity: 0, scale: 0, y: 80, rotationX: 180, transformOrigin: "0% 50% -50", ease: Back.easeOut }, 0.01, "+=0");
-
-    //     new ScrollMagic.Scene({
-    //             triggerElement: this,
-    //             triggerHook: .8,
-    //             reverse: false
-    //         })
-    //         .setTween(tl)
-    //         .addTo(controller);
-
-    // });
+   
 
     // $("[animate-text-loop]").each(function(index) {
     //     var splitone = new SplitText(this, { type: "chars,words, lines" }),
