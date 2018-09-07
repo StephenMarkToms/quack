@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function scrollMagic() {
 
     controller = new ScrollMagic.Controller();
+    scene = new ScrollMagic.Scene();
 
     var duration = 0.75;
     var animations = [
@@ -45,7 +46,7 @@ function scrollMagic() {
         var tl = new TimelineMax();
         tl.from(this, duration, animations[0]);
 
-        var scene = new ScrollMagic.Scene({
+        scene = new ScrollMagic.Scene({
                 triggerElement: this,
                 triggerHook: 0.8,
                 reverse: false
@@ -59,7 +60,7 @@ function scrollMagic() {
         var tl = new TimelineMax();
         tl.from(this, .75, animations[3]);
 
-        var scene = new ScrollMagic.Scene({
+        scene = new ScrollMagic.Scene({
                 triggerElement: this,
                 triggerHook: 0.8,
                 reverse: false
@@ -75,7 +76,7 @@ function scrollMagic() {
         var tl = new TimelineMax();
         tl.staggerFrom(splitone.chars, 0.8, { opacity: 0, scale: 0, y: 80, rotationX: 180, transformOrigin: "0% 50% -50", ease: Back.easeOut }, 0.01, "+=0");
 
-        var scene = new ScrollMagic.Scene({
+        scene = new ScrollMagic.Scene({
                 triggerElement: this,
                 triggerHook: .8,
                 reverse: false
@@ -88,92 +89,92 @@ function scrollMagic() {
    
 
 
-    // $('[animate-fade-2]').each(function(index) {
-    //     var tl = new TimelineMax();
-    //     tl.from(this, .75, animations[2]);
+    $('[animate-fade-2]').each(function(index) {
+        var tl = new TimelineMax();
+        tl.from(this, .75, animations[2]);
 
-    //     var scene = new ScrollMagic.Scene({
-    //             triggerElement: this,
-    //             triggerHook: 0.8,
-    //             reverse: false
-    //         })
-    //         .setTween(tl)
-    //         .addTo(controller);
-    // });
+        scene = new ScrollMagic.Scene({
+                triggerElement: this,
+                triggerHook: 0.8,
+                reverse: false
+            })
+            .setTween(tl)
+            .addTo(controller);
+    });
 
 
-    // // Create scenes for splittext
-    // $("[animate-text]").each(function(index) {
-    //     var splitone = new SplitText(this, { type: "chars,words, lines" }),
-    //         tl = new TimelineLite({ delay: 1 });
-    //     var tl = new TimelineMax();
-    //     tl.staggerFrom(splitone.chars, 0.5, { y: 80, opacity: 0, ease: Power4.easeOut }, 0.01);
+    // Create scenes for splittext
+    $("[animate-text]").each(function(index) {
+        var splitone = new SplitText(this, { type: "chars,words, lines" }),
+            tl = new TimelineLite({ delay: 1 });
+        var tl = new TimelineMax();
+        tl.staggerFrom(splitone.chars, 0.5, { y: 80, opacity: 0, ease: Power4.easeOut }, 0.01);
 
-    //     new ScrollMagic.Scene({
-    //             triggerElement: this,
-    //             triggerHook: 0.6,
-    //             reverse: false
-    //         })
-    //         .setTween(tl)
-    //         .addTo(controller);
+        scene = new ScrollMagic.Scene({
+                triggerElement: this,
+                triggerHook: 0.6,
+                reverse: false
+            })
+            .setTween(tl)
+            .addTo(controller);
 
-    // });
+    });
 
    
 
-    // $("[animate-text-loop]").each(function(index) {
-    //     var splitone = new SplitText(this, { type: "chars,words, lines" }),
-    //         tl = new TimelineLite({ delay: .5 });
-    //     var tl = new TimelineMax();
-    //     tl.staggerFrom(splitone.chars, 3, { delay: .5, y: 80, opacity: 0, ease: Power4.easeOut, repeat: -1 }, 0.01);
+    $("[animate-text-loop]").each(function(index) {
+        var splitone = new SplitText(this, { type: "chars,words, lines" }),
+            tl = new TimelineLite({ delay: .5 });
+        var tl = new TimelineMax();
+        tl.staggerFrom(splitone.chars, 3, { delay: .5, y: 80, opacity: 0, ease: Power4.easeOut, repeat: -1 }, 0.01);
 
-    //     new ScrollMagic.Scene({
-    //             triggerElement: this,
-    //             triggerHook: 0.8,
-    //             reverse: false
-    //         })
-    //         .setTween(tl)
-    //         .addTo(controller);
+        scene = new ScrollMagic.Scene({
+                triggerElement: this,
+                triggerHook: 0.8,
+                reverse: false
+            })
+            .setTween(tl)
+            .addTo(controller);
 
-    // });
-
-
-    // $('[animate-line]').each(function(index) {
-    //     var tl = new TimelineMax();
-    //     tl.from(this, duration, animations[1]);
-
-    //     var scene = new ScrollMagic.Scene({
-    //             triggerElement: this,
-    //             triggerHook: 0.8,
-    //             reverse: false
-    //         })
-    //         .setTween(tl)
-    //         .addTo(controller);
-    // });
+    });
 
 
-    // $('[animate-overlay]').each(function(index) {
-    //     var tl = new TimelineMax();
-    //     tl.fromTo(
-    //         this,
-    //         1, { skewX: 30, scale: 1.5 }, {
-    //             delay: 1,
-    //             skewX: 0,
-    //             xPercent: 100,
-    //             transformOrigin: "0% 100%",
-    //             repeatDelay: 1,
-    //             ease: Power2.easeOut
-    //         }
-    //     );
+    $('[animate-line]').each(function(index) {
+        var tl = new TimelineMax();
+        tl.from(this, duration, animations[1]);
 
-    //     var scene = new ScrollMagic.Scene({
-    //             triggerElement: this,
-    //             triggerHook: 0.6,
-    //             reverse: false
-    //         })
-    //         .setTween(tl)
-    //         .addTo(controller);
-    // });
+        var scene = new ScrollMagic.Scene({
+                triggerElement: this,
+                triggerHook: 0.8,
+                reverse: false
+            })
+            .setTween(tl)
+            .addTo(controller);
+    });
+
+
+    $('[animate-overlay]').each(function(index) {
+        var tl = new TimelineMax();
+        tl.fromTo(
+            this,
+            1, { skewX: 30, scale: 1.5 }, {
+                delay: 1,
+                skewX: 0,
+                xPercent: 100,
+                transformOrigin: "0% 100%",
+                repeatDelay: 1,
+                ease: Power2.easeOut
+            }
+        );
+
+        scene = new ScrollMagic.Scene({
+                triggerElement: this,
+                triggerHook: 0.6,
+                reverse: false
+            })
+            .setTween(tl)
+            .addTo(controller);
+    });
 
     
 
