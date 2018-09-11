@@ -36,7 +36,7 @@ function scrollMagic() {
     var animations = [
         { y: "+=50", scale: 1, opacity: 0 },
         { height: 0, opacity: 0 },
-        { delay: .75, y: "+=50", scale: 1, opacity: 0 },
+        { delay: .75, y: "+=50", scale: .9, opacity: 0 },
         { alpha: 0, width: 0 }
     ]
 
@@ -283,17 +283,17 @@ function handleAnimations() {
 
 
             //desktop
-            $(".desktop-hero").removeClass("d-none");
-            $(".desktop-body").removeClass("d-none");
-            $(".desktop-hero-content").removeClass("d-none");
+            // $(".desktop-hero").removeClass("d-none");
+            // $(".desktop-body").removeClass("d-none");
+            // $(".desktop-hero-content").removeClass("d-none");
 
 
-            TweenMax.from(".desktop-hero", .75, { delay: .5, alpha: 0, ease: Power3.easeInOut });
+            // TweenMax.from(".desktop-hero", .75, { delay: .5, alpha: 0, ease: Power3.easeInOut });
 
 
-            var mySplitText = new SplitText(".desktop-hero-content", { type: "chars,words, lines" }),
-                tl = new TimelineLite({ delay: 0.5 });
-            tl.staggerFrom(mySplitText.chars, 0.5, { y: 100, opacity: 0 }, 0.02);
+            // var mySplitText = new SplitText(".desktop-hero-content", { type: "chars,words, lines" }),
+            //     tl = new TimelineLite({ delay: 0.5 });
+            // tl.staggerFrom(mySplitText.chars, 0.5, { y: 100, opacity: 0 }, 0.02);
 
 
 
