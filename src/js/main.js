@@ -1,3 +1,7 @@
+
+$("html").easeScroll();
+
+
 document.addEventListener("DOMContentLoaded", function() {
 
     $(window).load(function() {
@@ -24,6 +28,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+  
+  
+  
+  
 
 
 
@@ -176,6 +184,18 @@ function scrollMagic() {
             .addTo(controller);
     });
 
+
+    $('[animate-parallax]').each(function(index) {
+
+        var pColorScene = new ScrollMagic.Scene({
+            triggerElement: '#main-content',
+            triggerHook: .5,
+            duration: '400%'
+        })
+        .setTween(TweenMax.from(this, .5, {y:'-200%', ease:Power0.easeNone}))
+        .addTo(controller);
+
+    });
     
 
 
@@ -262,8 +282,13 @@ function handleAnimations() {
         onEnter: function() {
 
 
+            
+
+        },
+        onEnterCompleted: function() {
+            // The Transition has just finished.
             // The new Container is ready and attached to the DOM.
-            console.log("enter");
+            console.log("entered done");
 
 
             //mobile
@@ -283,26 +308,30 @@ function handleAnimations() {
 
 
             //desktop
-            // $(".desktop-hero").removeClass("d-none");
-            // $(".desktop-body").removeClass("d-none");
-            // $(".desktop-hero-content").removeClass("d-none");
+            $(".desktop-body").removeClass("d-none");
+
+            TweenMax.from(".desktop-portrait-hero", .75, { delay: .5, alpha: 0, y: "-=30", ease: Power3.easeInOut });
 
 
-            // TweenMax.from(".desktop-hero", .75, { delay: .5, alpha: 0, ease: Power3.easeInOut });
+            var mySplitText = new SplitText(".desktop-hero-text", { type: "chars,words, lines" }),
+            tl = new TimelineLite({ delay: 1 });
+            tl.staggerFrom(mySplitText.chars, 0.5, { y: 100, opacity: 0 }, 0.02);
 
+            var mySplitText2 = new SplitText(".d-title", { type: "chars,words,lines" }),
+            t2 = new TimelineLite({ delay: .5 });
+            t2.staggerFrom(mySplitText2.chars, 0.8, { opacity: 0, scale: 0, y: 80, rotationX: 180, transformOrigin: "0% 50% -50", ease: Back.easeOut }, 0.01, "+=0");
 
-            // var mySplitText = new SplitText(".desktop-hero-content", { type: "chars,words, lines" }),
-            //     tl = new TimelineLite({ delay: 0.5 });
-            // tl.staggerFrom(mySplitText.chars, 0.5, { y: 100, opacity: 0 }, 0.02);
+            var mySplitText3 = new SplitText(".gallery-side-text", { type: "chars" }),
+            t3 = new TimelineLite({ delay: 1.4 });
+            t3.staggerFrom(mySplitText3.chars, 0.5, { y: 100, opacity: 0 }, 0.02);
 
+            
 
-
+            TweenMax.from("#first-img", .75, { delay: 1, y: "+=30", alpha: 0, ease: Back.easeOut });
+            TweenMax.from("#sec-img", .75, { delay: 1.5, y: "+=30", alpha: 0, ease: Back.easeOut });
+            
 
             scrollMagic();
-
-        },
-        onEnterCompleted: function() {
-            // The Transition has just finished.
 
         },
         onLeave: function() {
