@@ -192,7 +192,7 @@ function scrollMagic() {
             triggerHook: .5,
             duration: '400%'
         })
-        .setTween(TweenMax.from(this, .5, {y:'-200%', ease:Power0.easeNone}))
+        .setTween(TweenMax.from(this, .5, {y:'+20%', ease:Power0.easeNone}))
         .addTo(controller);
 
     });
