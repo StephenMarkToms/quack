@@ -99,6 +99,60 @@ body {
 
 }
 
+.contact-count{
+
+    font-size: 44vw;
+    color: #cea99e;
+
+}
+
+.record-btn{
+
+    color: #987d75;
+
+
+}
+
+
+
+
+.about-hero-image {
+
+ 
+   
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  span {
+    padding-bottom: 56%;
+    display: block;
+    background: url('../../assets/imgs/about/1-d.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  &:after {
+    height: 100%;
+    content:'';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #dbb8ad;
+    transform: translate(0, 0);
+    transition: all 1s ease-in-out;
+  }
+}
+
+.is-visible {
+  &:after {
+    transform: translate(-100%, 0);
+  }
+}
+
+
 
 .navbar {
 
@@ -417,6 +471,7 @@ a:hover {
 
 
 }
+
 
 nav{
 

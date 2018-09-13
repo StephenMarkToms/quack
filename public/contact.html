@@ -9,6 +9,8 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="stylesheet" href="./assets/css/main.css?rel=1461884900147">
     <link rel=stylesheet href=https://use.fontawesome.com/releases/v5.1.0/css/all.css integrity=sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt crossorigin=anonymous>
+    <link href="./assets/css/vendor/lightbox.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Cormorant Unicase&subset=latin" rel="stylesheet" type="text/css">
   </head>
   
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
@@ -18,10 +20,11 @@ window.addEventListener("load", function(){
 window.cookieconsent.initialise({
   "palette": {
     "popup": {
-      "background": "#000"
+      "background": "#8A7373"
     },
     "button": {
-      "background": "#f1d600"
+      "background": "#5d4239",
+      "color": "white"
     }
   },
   "content": {
@@ -36,7 +39,7 @@ window.cookieconsent.initialise({
 
 
   <nav class="navbar navbar-expand-md fixed-top ml-0  mt-xs-3 mr-xs-2">
-      <a class="navbar-brand" href="index.html">SMT<small><sub class="logo-sub">design</sub></small></a>
+      <a class="navbar-brand" href="index.html"><img src="./assets/imgs/supporting/logo.jpg" class="pl-2" style="max-height: 40px;"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
         Menu
       </button>
@@ -52,7 +55,7 @@ window.cookieconsent.initialise({
             <a class="nav-link" href="about.html" data-toggle="collapse" data-target="#navbarsExample05">About</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#" data-toggle="collapse" data-target="#navbarsExample05">Contact</a>
+            <a class="nav-link" href="contact.html" data-toggle="collapse" data-target="#navbarsExample05">Contact</a>
           </li>
         </ul>
       </div>
@@ -66,36 +69,43 @@ window.cookieconsent.initialise({
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-<div class="barba-container" data-namespace="homepage">
+<div class="barba-container" data-namespace="Contact">
     <div class="container" id="main-content">
-        <div class="row justify-content-center vertical-center">
-            <div class="container">
-                <div class="row align-items-center mt-5 ">
-                    <div class="col-4 px-1">
-                        <a href="portraits.html">
-                            <div class="portraits-hero hero-img img-fluid d-none">
-                                <p>Portraits</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-4 px-1">
-                        <a href="about.html">
-                            <div class="couples-hero hero-img img-fluid d-none">
-                                <p>Couples</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-4 px-1">
-                        <a href="about.html">
-                            <div class="weddings-hero hero-img img-fluid d-none">
-                                <p>Weddings</p>
-                            </div>
-                        </a>
-                    </div>
+        <div class="row justify-content-center vertical-center mt-3">
+            <div class="container mx-0 mt-3  px-0 ">
+                <div class="row mt-5 ml-1">
+                    
+                  <div class="col-12 mx-auto text-center">
+
+                    
+                      <a href="#"><i  id="mic" class="fas fa-microphone fa-5x text-center rounded-circle" style="color: #987d75;"></i></a>
+
+                      <h2 id="directions" class="text-center pt-3" style="color: #987d75;"><i>Click to record a message</i></h2>
+                    
+                      <hr id="line">
+                  
+                      <a href="#" onclick="$('#recorder')[0].contentWindow.startRecording();" >Start</a> 
+                      <a href="#" id="stopButton" onclick="$('#recorder')[0].contentWindow.stopRecording();">Stop</a>
+                      <a href="#" id="pauseButton">Post</a>
+
+
+
+                  </div>
+
+                </div>
+                <div class="row d-none">
+
+                  <div class="col mx-auto">
+                    <iframe id="recorder" src="./recordings/index.html" height="400" width="700"></iframe>
+                  </div>
+
                 </div>
             </div>
         </div>
     </div>
+
+
+
 
       	<!--
       	<script src="https://code.jquery.com/jquery-3.3.1.min.js" ></script>
@@ -104,8 +114,12 @@ window.cookieconsent.initialise({
         <script src="./assets/js/vendor/jquery-1.11.3.min.js"></script>
         <script src="./assets/js/vendor/bootstrap.min.js"></script>
         
+        
 
         <script src="./assets/js/vendor/popper.min.js"></script>
+
+
+        <script src="./assets/js/vendor/jquery.easeScroll.js"></script>
         <script src="./assets/js/vendor/TweenMax.min.js"></script>
         <script src="./assets/js/vendor/SplitText.min.js"></script>
         <script src="./assets/js/vendor/barba.min.js"></script>
@@ -114,13 +128,16 @@ window.cookieconsent.initialise({
 
         <script src="./assets/js/vendor/ScrollMagic.js"></script>
         <script src="./assets/js/vendor/animation.gsap.js"></script>
-        <!-- <script src="./assets/js/vendor/debug.addIndicators.js"></script> -->
+
+        <script src="./assets/js/vendor/lightbox.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-visible/1.2.0/jquery.visible.min.js"></script>
+
+        
+
+        <script src="./assets/js/vendor/debug.addIndicators.js"></script>
 
         <script src="./assets/js/script.min.js"></script>
-
-
-
-
         
          
     	</div>

@@ -1,0 +1,39 @@
+include "header.html"
+<div class="barba-container" data-namespace="Contact">
+    <div class="container" id="main-content">
+        <div class="row justify-content-center vertical-center mt-3">
+            <div class="container mx-0 mt-3  px-0 ">
+                <div class="row mt-5 ml-1">
+                    
+                  <div class="col-12 mx-auto text-center">
+
+                    
+                      <a href="#"><i  id="mic" class="fas fa-microphone fa-5x text-center rounded-circle" style="color: #987d75;"></i></a>
+
+                      <h2 id="directions" class="text-center pt-3" style="color: #987d75;"><i>Click to record a message</i></h2>
+                    
+                      <hr id="line">
+                  
+                      <a href="#" onclick="$('#recorder')[0].contentWindow.startRecording();" >Start</a> 
+                      <a href="#" id="stopButton" onclick="$('#recorder')[0].contentWindow.stopRecording();">Stop</a>
+                      <a href="#" id="pauseButton">Post</a>
+
+
+
+                  </div>
+
+                </div>
+                <div class="row d-none">
+
+                  <div class="col mx-auto">
+                    <iframe id="recorder" src="./recordings/index.html" height="400" width="700"></iframe>
+                  </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    include "footer.html"

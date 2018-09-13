@@ -257,11 +257,26 @@ function handleAnimations() {
         onEnter: function() {
             // The new Container is ready and attached to the DOM.
             console.log("enter");
-            TweenMax.from("#main-content", .5, { delay: .5, y: "+=100", alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false });
+            TweenMax.from("#main-content", .5, { delay: .5, alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false });
+            
+            $("#header").removeClass("d-none");
+            var mySplitText = new SplitText("#header", { type: "chars,words, lines" }),
+                tl = new TimelineLite({ delay: 0.5 });
+            tl.staggerFrom(mySplitText.chars, 0.5, { y: 100, opacity: 0 }, 0.02);
+            $("#bio").removeClass("d-none");
+            TweenMax.from("#bio", .75, { delay: 1.5, y: "+=50", alpha: 0, ease: Power3.easeInOut });
+            $("#line").removeClass("d-none");
+            TweenMax.from("#line", .75, { delay: 1, width: 0, ease: Power3.easeInOut });
 
         },
         onEnterCompleted: function() {
             // The Transition has just finished.
+            var container = document.querySelector('.about-hero-image');
+
+            setTimeout(function () {
+              container.classList.toggle('is-visible');
+            }, 500);
+
 
         },
         onLeave: function() {
@@ -346,6 +361,38 @@ function handleAnimations() {
         }
     });
 
+    var Contact = Barba.BaseView.extend({
+        namespace: 'Contact',
+        onEnter: function() {
+
+            var mySplitText = new SplitText("#directions", { type: "chars,words, lines" }),
+            tl = new TimelineLite({ delay: 1 });
+            tl.staggerFrom(mySplitText.chars, 0.5, { y: 100, opacity: 0 }, 0.02);
+            
+            TweenMax.from("#mic", 1, { delay: .5, alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false });
+            TweenMax.from("#line", 1, { delay: 1.5, width: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false });
+
+
+        },
+        onEnterCompleted: function() {
+            // The Transition has just finished.
+            // The new Container is ready and attached to the DOM.
+            console.log("entered done");
+
+
+        },
+        onLeave: function() {
+            // A new Transition toward a new page has just started.
+            console.log("leave");
+            TweenMax.to("#main-content", 1, { y: "+=30", alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false });
+
+
+        },
+        onLeaveCompleted: function() {
+            // The Container has just been removed from the DOM.
+        }
+    });
+
 
 
 
@@ -356,6 +403,7 @@ function handleAnimations() {
     Homepage.init();
     About.init();
     Portraits.init();
+    Contact.init();
 
 
 
