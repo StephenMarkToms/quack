@@ -112,8 +112,17 @@ function stopRecording() {
 	gumStream.getAudioTracks()[0].stop();
 
 	//create the wav blob and pass it on to createDownloadLink
-	//rec.exportWAV(createDownloadLink);
+	rec.exportWAV(createDownloadLink);
+	// rec.exportWAV(uploadRec);
+}
+
+var finalRecording;
+
+
+function sendRec(){
+
 	rec.exportWAV(uploadRec);
+	
 }
 
 function createDownloadLink(blob) {
@@ -138,11 +147,6 @@ function createDownloadLink(blob) {
 	//add the new audio element to li
 	li.appendChild(au);
 	
-	//add the filename to the li
-	li.appendChild(document.createTextNode(filename+".wav "))
-
-	//add the save to disk link to li
-	li.appendChild(link);
 	
 	//upload link
 	var upload = document.createElement('a');
@@ -161,10 +165,9 @@ function createDownloadLink(blob) {
 		  xhr.send(fd);
 	})
 	li.appendChild(document.createTextNode (" "))//add a space in between
-	li.appendChild(upload)//add the upload link to li
 
 	//add the li element to the ol
-	recordingsList.appendChild(li);
+	window.parent.document.getElementById('recordingsList').appendChild(li);
 }
 
 function uploadRec(blob) {

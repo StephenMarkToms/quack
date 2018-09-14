@@ -487,3 +487,87 @@ function initBarba() {
 
 
 }
+
+
+var intervalId;
+
+function recAnimation(){
+
+    var firstLoop = true;
+
+    $("#directions").addClass('d-none');  
+    $("#readyText").removeClass('d-none');
+    
+    $('#recorder')[0].contentWindow.startRecording();
+
+    var i = 0;
+    intervalId = setInterval(function(){
+
+    if(firstLoop){
+        $("#stopButton").removeClass('d-none');
+    }
+
+    $("#readyText").addClass('d-none'); 
+    // $("#recText").removeClass('d-none');
+
+    // var mySplitText = new SplitText("#recText", { type: "chars,words, lines" }),
+    //         tl = new TimelineLite({ delay: 1, repeat: -1, repeatDelay: 4});
+    //         tl.staggerFrom(mySplitText.chars, 1.3, { x: 20, autoAlpha:0 }, 0.02),
+    //         tl.staggerTo(mySplitText.chars, 1, {x: 0, autoAlpha: 0 }, 0.02),
+    //         tl.staggerTo(mySplitText.chars, 1, {autoAlpha: 1 }, 0.02);
+
+    i += 3;
+    var bar1 = new ldBar("#progress");
+    var bar2 = document.getElementById('progress').ldBar;
+    bar1.set(i);
+    console.log(i);
+
+    if(i > 100){
+
+        stopRecAnimation();
+
+    }
+
+
+       
+    }, 2400);
+}
+
+function submitRec(){
+
+    $("#recContent").addClass('d-none');
+    $("#thanks").removeClass('d-none');
+    $('#recorder')[0].contentWindow.sendRec();
+
+}
+
+
+function stopRecAnimation(){
+
+    clearInterval(intervalId);
+
+    $("#stopButton").addClass('d-none');
+    $("#recText").addClass('d-none');
+    $("#progress").addClass('d-none');
+    $("#sendButton").removeClass('d-none');
+    $('#recorder')[0].contentWindow.stopRecording(); 
+    // $("#mesText").removeClass('d-none');
+
+
+}
+
+
+function startRec(){
+
+
+    console.log("test");
+
+    TweenMax.to("#mic", .5, { delay: .5, alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false, onComplete:function(){ $("#mic").addClass('d-none'); $("#progress").removeClass('d-none'); } });
+    TweenMax.from("#progress", .5, { delay: 1, alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false, onComplete: recAnimation });
+    TweenMax.to("#directions", .5, { delay: 1, alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false });
+
+
+
+}
+
+
