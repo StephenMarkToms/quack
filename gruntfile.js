@@ -2,6 +2,8 @@ module.exports = function(grunt) {
     // var BUILD_DIR_CSS = 'deploy/assets/css';
     // var SRC_DIR_CSS = 'src/scss';
 
+    require('load-grunt-tasks')(grunt); // npm install --save-dev load-grunt-tasks
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
@@ -48,7 +50,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'public/assets/js/script.min.js': ['src/js/vendor/*.js', 'src/js/*.js'],
+                    'public/assets/js/script.min.js': ['src/js/vendor/jquery-1.11.3.min.js', 'src/js/vendor/bootstrap.min.js',  'src/js/vendor/popper.min.js', 'src/js/vendor/jquery.easeScroll.js', 'src/js/vendor/TweenMax.min.js', 'src/js/vendor/SplitText.min.js', 'src/js/vendor/barba.min.js', 'src/js/vendor/ScrollMagic.js', 'src/js/vendor/animation.gsap.js', 'src/js/vendor/lightbox.js', 'src/js/vendor/loading-bar.js', 'src/js/main.js' ],
                     
                 }
 
@@ -68,69 +70,79 @@ module.exports = function(grunt) {
         },
 
         includes: {
-            deploy: {
-                cwd: 'src/pages',
+
+
+            Index: {
+                cwd: 'src/pages/',
                 src: ['*.html', '*.php'],
                 dest: './public/',
                 options: {
-                    includePath: 'src/partials'
-                }
-            }, //deploy
-
-
-
-
-            },
-        cachebreaker: {
-            css: {
-                options: {
-                    match: ['/*.css'],
-                    src: {
-                        path: 'public/assets/**/*.css'
-
-                    },
-                },
-                files: {
-                    src: ['src/partials/**/*.html', 'src/pages/**/*.html']
-                }
-            },
-            scripts: {
-                options: {
-                    match: ['/*.js'],
-                    src: {
-                        path: 'public/assets/js/**/*.js'
-
-                    },
-                },
-                files: {
-                    src: ['src/partials/**/*.php', 'src/pages/**/*.php']
-                }
-            },
-            imgs: {
-                options: {
-                    match: ['/*.svg', '/*.png', '/*.jpg'],
-                    src: {
-                        path: 'public/assets/imgs/**/*'
-
-                    },
-                },
-                files: {
-                    src: ['src/**/*.html', 'src/pages/**/*.html']
+                    includePath: 'src/partials/'
                 }
             },
 
-            pdfs: {
+            Portraits: {
+                cwd: 'src/pages/portraits',
+                src: ['*.html', '*.php'],
+                dest: './public/portraits',
                 options: {
-                    match: ['/*.pdf'],
-                    src: {
-                        path: 'public/pdfs/**/*.pdf'
+                    includePath: 'src/partials/'
+                }
+            },
 
-                    },
-                },
+            Couples: {
+                cwd: 'src/pages/couples',
+                src: ['*.html', '*.php'],
+                dest: './public/couples',
+                options: {
+                    includePath: 'src/partials/'
+                }
+            },
+
+            Weddings: {
+                cwd: 'src/pages/weddings',
+                src: ['*.html', '*.php'],
+                dest: './public/weddings',
+                options: {
+                    includePath: 'src/partials/'
+                }
+            },
+
+            About: {
+                cwd: 'src/pages/about',
+                src: ['*.html', '*.php'],
+                dest: './public/about',
+                options: {
+                    includePath: 'src/partials/'
+                }
+            },
+
+            Contact: {
+                cwd: 'src/pages/contact',
+                src: ['*.html', '*.php'],
+                dest: './public/contact',
+                options: {
+                    includePath: 'src/partials/'
+                }
+            },
+
+
+
+
+        },
+
+        minifyHtml: {
+            options: {
+                cdata: true
+            },
+            dist: {
                 files: {
-
-                    src: ['src/partials/**/*.php', 'src/pages/**/*.php']
-
+                    'public/index.html': 'public/index.html',
+                    'public/portraits/index.html': 'public/portraits/index.html',
+                    'public/couples/index.html': 'public/couples/index.html',
+                    'public/weddings/index.html': 'public/weddings/index.html',
+                    'public/about/index.html': 'public/about/index.html',
+                    'public/contact/index.html': 'public/contact/index.html'
                 }
             }
         },
@@ -153,8 +165,8 @@ module.exports = function(grunt) {
             },
 
             html: {
-                files: ['src/**/*.html', 'src/**/*.php'],
-                tasks: ['includes:deploy']
+                files: ['src/partials/**/**/*.html', 'src/**/*.html' ],
+                tasks: ['uglify:dist', 'includes:Index', 'includes:Couples', 'includes:Portraits', 'includes:Weddings', 'includes:About', 'includes:Contact']
 
             }
         } 
@@ -165,8 +177,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-includes');
     grunt.loadNpmTasks('grunt-banner');
     grunt.loadNpmTasks('grunt-cache-breaker');
-
-    grunt.registerTask('default', ['watch']);
+    grunt.registerTask('default', ['watch', 'uglify:dist']);
     grunt.registerTask('deploy', ['uglify:dist', 'sass:dist', 'usebanner']);
+    grunt.registerTask('html', ['minifyHtml']);
 
 };
