@@ -404,6 +404,9 @@ function handleAnimations() {
             TweenMax.from(".desktop-hero", .75, { delay: .5, alpha: 0, y: "-=30", ease: Power3.easeInOut });
 
 
+            TweenMax.from(".d-title-content", .75, { delay: 1, alpha: 0, y: "+=30", ease: Power3.easeInOut });
+
+
             var mySplitText = new SplitText(".desktop-hero-text", { type: "chars,words, lines" }),
                 tl = new TimelineLite({ delay: 1 });
             tl.staggerFrom(mySplitText.chars, 0.5, { y: 100, opacity: 0 }, 0.02);

@@ -423,7 +423,7 @@ a:hover {
 
 }
 
-.d-title p{
+.d-title-content{
 
     font-size: 1.4vw;
     font-style: italic;
@@ -449,6 +449,18 @@ a:hover {
 
     height: 110%;
     background-image: url('../imgs/index/weddings-hero.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 24% 50%;
+    color: white;
+
+
+}
+
+.desktop-couples-hero{
+
+    height: 110%;
+    background-image: url('../imgs/index/couples-hero.jpg');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 24% 50%;
