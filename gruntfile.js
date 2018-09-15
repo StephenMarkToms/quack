@@ -18,7 +18,7 @@ module.exports = function(grunt) {
                     banner: '<%= banner %>'
                 },
                 files: {
-                    src: ['public/assets/css/main.css']
+                    src: ['public/desktop/assets/css/main.css']
                 }
             }
         },
@@ -26,31 +26,23 @@ module.exports = function(grunt) {
             options: {
                 sourceMap: true
             },
-            dist: {
+            desktop: {
                 options: {
                     outputStyle: 'compressed'
                 },
                 files: {
-                    'public/assets/css/main.css': 'src/scss/main.scss'
+                    'public/desktop/assets/css/main.css': 'src/desktop/scss/main.scss'
                 }
             }
-            // dev: {
-            //     options: {
-            //         outputStyle: 'compressed'
-            //     },
-            //     files: {
-            //         'public/assets/css/main.css': 'src/scss/main.scss'
-            //     }
-            // }
         },
 
         uglify: {
             options: {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n\n'
             },
-            dist: {
+            desktop: {
                 files: {
-                    'public/assets/js/script.min.js': ['src/js/vendor/jquery-1.11.3.min.js', 'src/js/vendor/bootstrap.min.js',  'src/js/vendor/popper.min.js', 'src/js/vendor/jquery.easeScroll.js', 'src/js/vendor/TweenMax.min.js', 'src/js/vendor/SplitText.min.js', 'src/js/vendor/barba.min.js', 'src/js/vendor/ScrollMagic.js', 'src/js/vendor/animation.gsap.js', 'src/js/vendor/lightbox.js', 'src/js/vendor/loading-bar.js', 'src/js/main.js' ],
+                    'public/desktop/assets/js/script.min.js': ['src/desktop/js/vendor/jquery-1.11.3.min.js', 'src/desktop/js/vendor/bootstrap.min.js',  'src/desktop/js/vendor/popper.min.js', 'src/desktop/js/vendor/jquery.easeScroll.js', 'src/desktop/js/vendor/TweenMax.min.js', 'src/desktop/js/vendor/SplitText.min.js', 'src/desktop/js/vendor/barba.min.js', 'src/desktop/js/vendor/ScrollMagic.js', 'src/desktop/js/vendor/animation.gsap.js', 'src/desktop/js/vendor/lightbox.js', 'src/desktop/js/vendor/loading-bar.js', 'src/desktop/js/main.js' ],
                     
                 }
 
@@ -64,7 +56,7 @@ module.exports = function(grunt) {
                     mangle: false
                 },
                 files: {
-                    'public/assets/js/script.min.js': 'src/js/*.js'
+                    'public/desktop/assets/js/script.min.js': 'src/desktop/js/*.js'
                 }
             }
         },
@@ -73,56 +65,56 @@ module.exports = function(grunt) {
 
 
             Index: {
-                cwd: 'src/pages/',
+                cwd: 'src/desktop/pages/',
                 src: ['*.html', '*.php'],
-                dest: './public/',
+                dest: './public/desktop/',
                 options: {
-                    includePath: 'src/partials/'
+                    includePath: 'src/desktop/partials/'
                 }
             },
 
             Portraits: {
-                cwd: 'src/pages/portraits',
+                cwd: 'src/desktop/pages/portraits',
                 src: ['*.html', '*.php'],
-                dest: './public/portraits',
+                dest: './public/desktop/portraits',
                 options: {
-                    includePath: 'src/partials/'
+                    includePath: 'src/desktop/partials/'
                 }
             },
 
             Couples: {
-                cwd: 'src/pages/couples',
+                cwd: 'src/desktop/pages/couples',
                 src: ['*.html', '*.php'],
-                dest: './public/couples',
+                dest: './public/desktop/couples',
                 options: {
-                    includePath: 'src/partials/'
+                    includePath: 'src/desktop/partials/'
                 }
             },
 
             Weddings: {
-                cwd: 'src/pages/weddings',
+                cwd: 'src/desktop/pages/weddings',
                 src: ['*.html', '*.php'],
-                dest: './public/weddings',
+                dest: './public/desktop/weddings',
                 options: {
-                    includePath: 'src/partials/'
+                    includePath: 'src/desktop/partials/'
                 }
             },
 
             About: {
-                cwd: 'src/pages/about',
+                cwd: 'src/desktop/pages/about',
                 src: ['*.html', '*.php'],
-                dest: './public/about',
+                dest: './public/desktop/about',
                 options: {
-                    includePath: 'src/partials/'
+                    includePath: 'src/desktop/partials/'
                 }
             },
 
             Contact: {
-                cwd: 'src/pages/contact',
+                cwd: 'src/desktop/pages/contact',
                 src: ['*.html', '*.php'],
-                dest: './public/contact',
+                dest: './public/desktop/contact',
                 options: {
-                    includePath: 'src/partials/'
+                    includePath: 'src/desktop/partials/'
                 }
             },
 
@@ -135,14 +127,14 @@ module.exports = function(grunt) {
             options: {
                 cdata: true
             },
-            dist: {
+            desktop: {
                 files: {
-                    'public/index.html': 'public/index.html',
-                    'public/portraits/index.html': 'public/portraits/index.html',
-                    'public/couples/index.html': 'public/couples/index.html',
-                    'public/weddings/index.html': 'public/weddings/index.html',
-                    'public/about/index.html': 'public/about/index.html',
-                    'public/contact/index.html': 'public/contact/index.html'
+                    'public/desktop/index.html': 'public/desktop/index.html',
+                    'public/desktop/portraits/index.html': 'public/desktop/portraits/index.html',
+                    'public/desktop/couples/index.html': 'public/desktop/couples/index.html',
+                    'public/desktop/weddings/index.html': 'public/desktop/weddings/index.html',
+                    'public/desktop/about/index.html': 'public/desktop/about/index.html',
+                    'public/desktop/contact/index.html': 'public/desktop/contact/index.html'
                 }
             }
         },
@@ -152,21 +144,21 @@ module.exports = function(grunt) {
                 livereload: false
             },
             css: {
-                files: ['src/**/*.scss'],
-                tasks: ['sass:dist', 'usebanner']
+                files: ['src/desktop/**/*.scss'],
+                tasks: ['sass:desktop', 'usebanner']
             },
             scripts: {
-                files: ['src/**/*.js'],
-                tasks: ['uglify:dist']
+                files: ['src/desktop/**/*.js'],
+                tasks: ['uglify:desktop']
             },
             pdfs: {
-                files: ['public/assets/pdfs/**/*.pdf'],
+                files: ['public/desktop/assets/pdfs/**/*.pdf'],
                 tasks: ['uglify']
             },
 
             html: {
-                files: ['src/partials/**/**/*.html', 'src/**/*.html' ],
-                tasks: ['uglify:dist', 'includes:Index', 'includes:Couples', 'includes:Portraits', 'includes:Weddings', 'includes:About', 'includes:Contact']
+                files: ['src/desktop/partials/**/**/*.html', 'src/desktop/**/*.html' ],
+                tasks: ['uglify:desktop', 'includes:Index', 'includes:Couples', 'includes:Portraits', 'includes:Weddings', 'includes:About', 'includes:Contact']
 
             }
         } 
@@ -177,8 +169,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-includes');
     grunt.loadNpmTasks('grunt-banner');
     grunt.loadNpmTasks('grunt-cache-breaker');
-    grunt.registerTask('default', ['watch', 'uglify:dist']);
-    grunt.registerTask('deploy', ['uglify:dist', 'sass:dist', 'usebanner']);
-    grunt.registerTask('html', ['minifyHtml']);
+    grunt.registerTask('desktop', ['watch', 'uglify:desktop']);
+    grunt.registerTask('html-desktop', ['minifyHtml:desktop']);
 
 };
