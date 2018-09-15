@@ -4,6 +4,7 @@ if ($_POST) {
 
 	//Variables Passed
 
+	$Device = $_POST['Device']; 
 	$Name = $_POST['Name']; 
 	$Shoot = $_POST['Shoot']; 
 	$Phone = $_POST['Phone']; 
@@ -17,6 +18,7 @@ if ($_POST) {
 	//format for writting data to file
 	$add = "\n" . 
 
+		$Device . "," .
 		$Name . "," .
 		$Shoot . "," . 
 		$Phone . "," .
@@ -30,6 +32,7 @@ if ($_POST) {
 
 		"<html><body>" . 
 		"<h3>New Contact Email</h3>" . 
+		"<br>" . "Device: " . "&nbsp;&nbsp;". $Device . 
 		"<br>" . "Name: " . "&nbsp;&nbsp;". $Name . 
 		"<br>" . "Shoot: " . "&nbsp;&nbsp;". $Shoot . "\n" .
 		"<br>" . "Phone: " . "&nbsp;&nbsp;". $Phone . 

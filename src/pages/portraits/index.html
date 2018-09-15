@@ -35,7 +35,7 @@ include "header.html"
                     <div class="col-8 pr-5">
                         <div class="row">
                             <div class="col-11 pb-5 px-0">
-                                <a href="../assets/imgs/index/portraits-hero.png" class="no-barba" data-lightbox="image-1" data-title="Hannah Rose Miller, Longwood Gardens 2018">
+                                <a href="../assets/imgs/index/portraits-hero.jpg" class="no-barba" data-lightbox="image-1" data-title="Hannah Rose Miller, Longwood Gardens 2018">
                                     <div class="desktop-portrait-hero text-center">
                                         <div class="desktop-hero-text mt-5 pt-5" animate-parallax>
                                             <p><i>portraits</i></p>
@@ -108,7 +108,7 @@ include "header.html"
                     <div class="col-6 mx-auto">
                      
 
-                        <form onclick="desktopEmail2();" class="desktop-form" animate-fade>
+                        <form onclick="desktopEmail();" class="desktop-form" animate-fade>
 
                             <div class="row">
                                 <div class="col-6">
@@ -347,12 +347,12 @@ include "header.html"
                     </div>
                     <div class="row mx-0 mb-5 pb-5">
                         <div class="col mx-4 mb-5 pb-5" >
-                            <form class="mobile-form" action="../email/contact.php" method="post">
+                            <form class="mobile-form" onclick="mobileEmail();" >
                                 <p class="pt-3 contact-label">What's your name?</p>
-                                <input name="Name" class="form-control form-control-lg" id="inputName" placeholder="My name is..." type="text" style="padding: .35rem 1rem; font-size: 1rem;" required="true">
+                                <input id="mobile-name" name="Name" class="form-control form-control-lg" id="inputName" placeholder="My name is..." type="text" style="padding: .35rem 1rem; font-size: 1rem;" required="true">
                                 <p class="pt-3 contact-label">What type of shoot would you like?</p>
-                                <select name="Shoot" class="custom-select" required="true">
-                                    <option selected>
+                                <select id="mobile-shoot" name="Shoot" class="custom-select" required="true">
+                                    <option selected value="">
                                         I am interested in...
                                     </option>
                                     <option value="1">
@@ -366,13 +366,24 @@ include "header.html"
                                     </option>
                                 </select>
                                 <p class="pt-3 contact-label">Phone:</p>
-                                <input name="Phone" class="form-control" id="example-tel-input" type="tel" value="(555)-555-5555" required="true">
+                                <input id="mobile-phone" name="Phone" class="form-control" id="example-tel-input" type="tel" placeholder="(555)-555-5555" required="true">
                                 <p class="pt-3 contact-label">Email:</p>
-                                <input name="Email" class="form-control" id="example-tel-input" type="tel" value="hello@gmail.com" required="true">
+                                <input id="mobile-email" name="Email" class="form-control" id="example-tel-input" type="tel" placeholder="hello@gmail.com" required="true">
                                 <label for="message" class="pt-3">Message:</label>
-                                <textarea name="Message" class="form-control" id="message" rows="7" required="true"></textarea>
+                                <textarea id="mobile-message" name="Message" class="form-control" id="message" rows="7" required="true"></textarea>
                                 <button type="submit" class="btn btn-lg btn-block  my-5">SUBMIT</button>
                             </form>
+                            <div class="mobile-thanks d-none row my-5 py-5 text-center">
+
+                                <div class="col mx-auto">
+
+                                    <h2 style="color: #987d75;"><i>Thank you for your message.</i></h2>
+                                      <hr>
+                                    <h2 style="color: #987d75;"><i>You will be contacted in 2-3 days.</i></h2>
+
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                     <div class="row mx-0">
@@ -385,14 +396,14 @@ include "header.html"
                     </div>
                     <div class="row mx-0">
                         <div class="col px-0">
-                            <a href="./couples.html">
+                            <a href="../couples">
                             <img class="end-image" src="../assets/imgs/portraits/end.png" >
                             </a>
                         </div>
                     </div>
                     <div class="row mx-0">
                         <div class="col px-0 text-center text-white" style="margin-top: -73%;">
-                            <a href="./couples.html">
+                            <a href="../couples">
                                 <p class="mb-0 text-white" style="font-size: 2.5rem;" animate-text-roll ><i>click to see</i></p>
                                 <h2 class="text-white" style="font-size: 3rem;" animate-text-roll>MORE</h2>
                             </a>
@@ -413,7 +424,7 @@ include "header.html"
                                     <p class="text-center" style="color: grey;"><b><i><a href="mailto:hello@smt.design" style="font-size: 1.2em;">hello@smt.design</a></i></b></p>
                                 </div>
                                 <div class="col-3">
-                                    <a href="./legal.html" style="font-size: 1em;"><b>Contact</a>
+                                    <a href="../contact" style="font-size: 1em;"><b>Contact</a>
                                 </div>
                             </div>
                         </div>

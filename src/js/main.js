@@ -25,57 +25,9 @@ document.addEventListener("DOMContentLoaded", function() {
 }); //end loaded
 
 
-
-
-function emailDesktop() {
-
-
-
-    var name = document.getElementById("desktop-name");
-
-    var email = document.getElementById("desktop-email");
-
-    var phone = document.getElementById("desktop-phone");
-    
-    var shoot = document.getElementById("desktop-shoot");
-    
-    var message = document.getElementById("desktop-message");
-
-    $.ajax({
-
-        type: 'post',
-
-        url: '../email/contact.php',
-
-        data: {
-
-            Name: name,
-            Email: email,
-            Phone: phone,
-            Shoot: shoot,
-            Message: message
-
-        },
-
-        success: function(response) {
-
-            $('#desktop-thanks').html("You data will be saved");
-
-        }
-
-    });
-
-    return false;
-
-
-
-
-
-}
-
 var sentEmail = false;
 
-function desktopEmail2(){
+function desktopEmail(){
 
 
     if(!sentEmail){
@@ -84,6 +36,7 @@ function desktopEmail2(){
             e.preventDefault();
 
             var formData = {
+                'Device': 'Desktop',
                 'Name': $("#desktop-name").val(),
                 'Email': $("#desktop-email").val(),
                 'Phone': $("#desktop-phone").val(),
@@ -100,6 +53,47 @@ function desktopEmail2(){
                     console.log('submitted data');
                     $('.desktop-form').addClass('d-none');
                     $('.desktop-thanks').removeClass('d-none');
+                },
+                error: function (jXHR, textStatus, errorThrown) {
+                    alert(errorThrown);
+                }
+            });
+        });
+
+        sentEmail = true;
+
+    }
+
+
+
+}
+
+function mobileEmail(){
+
+
+    if(!sentEmail){
+
+        $('.mobile-form').on('submit', function(e) {
+            e.preventDefault();
+
+            var formData = {
+                'Device': 'Mobile',
+                'Name': $("#mobile-name").val(),
+                'Email': $("#mobile-email").val(),
+                'Phone': $("#mobile-phone").val(),
+                'Shoot': $("#mobile-shoot").val(),
+                'Message': $("#mobile-message").val(),
+            };
+
+            $.ajax({
+                url : "../email/contact.php",
+                type: "POST",
+                data: formData,
+                success: function (data) {
+                    //$("#form_output").html(data); $("#desktop-thanks").html(postresult);
+                    console.log('submitted data');
+                    $('.mobile-form').addClass('d-none');
+                    $('.mobile-thanks').removeClass('d-none');
                 },
                 error: function (jXHR, textStatus, errorThrown) {
                     alert(errorThrown);
