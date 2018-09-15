@@ -1,3 +1,121 @@
-<!doctype html><html class=no-js lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title style="font-style: italic;">smt</title><meta name=description><meta name=viewport content="width=device-width, initial-scale=1, shrink-to-fit=no"><link rel=apple-touch-icon href=apple-touch-icon.png><link rel=stylesheet href="../assets/css/main.css?rel=1461884900147"><link rel=stylesheet href=https://use.fontawesome.com/releases/v5.1.0/css/all.css integrity=sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt crossorigin=anonymous><link href=../assets/css/vendor/lightbox.css rel=stylesheet><link href="//fonts.googleapis.com/css?family=Cormorant Unicase&subset=latin" rel=stylesheet type=text/css><link rel=stylesheet type=text/css href=../assets/css/vendor/loading-bar.css></head><link rel=stylesheet type=text/css href=//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css><script src=//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js></script><script>
-window.addEventListener("load",function(){window.cookieconsent.initialise({palette:{popup:{background:"#8A7373"},button:{background:"#5d4239",color:"white"}},content:{message:"This website uses cookies."}})});</script><body><nav class="navbar navbar-expand-md fixed-top ml-0 mt-xs-3 mr-xs-2"><a class=navbar-brand href=index.html><img src=../assets/imgs/supporting/logo.jpg class=pl-2 style="max-height: 40px;"></a> <button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarsExample05 aria-controls=navbarsExample05 aria-expanded=false aria-label="Toggle navigation">Menu</button><div class="collapse navbar-collapse" id=navbarsExample05><ul class="navbar-nav ml-auto p-2"><li class="nav-item active"><a class=nav-link href="../" data-toggle=collapse data-target=#navbarsExample05>Works</a></li><li class="nav-item active"><a class=nav-link href=../about data-toggle=collapse data-target=#navbarsExample05>About</a></li><li class="nav-item active"><a class=nav-link href=../contact data-toggle=collapse data-target=#navbarsExample05>Contact</a></li></ul></div></nav><div id=barba-wrapper class=wrapper><div class=barba-container data-namespace=Contact><div class=container id=main-content><div class="row justify-content-center vertical-center mt-3"><div class="container mx-0 mt-3 px-0"><div class="row px-0 mx-0 mt-5 ml-1"><div class="col-12 mx-auto text-center"><div id=recContent><div class="ldBar label-center d-none" id=progress style=width:30%;height:30%;margin:auto data-value=100 data-preset=circle data-stroke=#987d75></div><a href=# onclick=startRec();><i id=mic class="fas fa-microphone fa-5x text-center rounded-circle" style="color: #987d75;"></i></a><h2 id=directions class="text-center pt-3" style="color: #987d75;"><i>Click to record a message</i></h2><h2 id=readyText class="d-none text-center pt-3" style="color: #987d75;"><i>Get Ready!</i></h2><h2 id=recText class="d-none text-center pt-3" style="color: #987d75;"><i>Recording...</i></h2><h2 id=mesText class="d-none text-center pt-3 mb-3" style="color: #987d75;"><i>Your recording</i></h2><ul class=pl-0 id=recordingsList style="list-style: none;"></ul><hr id=line><div class="row justify-content-center"><div id=stopButton class=d-none><div class="row justify-content-center"><div class="col-3 mx-0"><a href=# onclick=stopRecAnimation()><i class="fa fa-3x fa-stop" aria-hidden=true style="color: #987d75;"></i><p style="color: #987d75; font-style: italic;">stop</p></a></div></div><div class="row justify-content-center mt-5"><p style="color: #987d75;">Audio is now being recorded from your device.</p></div></div><div class=d-none id=sendButton><div class="row mb-4"><h4 style="color: #987d75; font-style: italic;">Would you like to send your message?</h4></div><div class=row><div class="col mx-auto"><a href=# onclick=submitRec();><i class="fa-3x fas fa-share-square" style="color: #987d75;"></i><h4 class=pr-3 style="color: #987d75;">Send</h4></a></div><div class="col mx-auto"><a href=# onclick="window.location = './contact.html'"><i class="fa-3x fas fa-ellipsis-h" style="color: #987d75;"></i><h4 style="color: #987d75;">Start Over</h4></a></div></div></div></div></div><div class=d-none id=thanks><h2 style="color: #987d75;"><i>Thank you for your message.</i></h2><hr><h2 style="color: #987d75;"><i>You will be contacted in 2-3 days.</i></h2></div></div><div class="row d-none"><div class="col mx-auto"><iframe id=recorder src=./recordings/index.html height=400 width=700></iframe></div></div></div></div></div></div><script src=../assets/js/script.min.js>
-    </script></div></div></body></html>
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title style="font-style: italic;">smt</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="../assets/css/main.css?rel=1461884900147">
+    <link rel=stylesheet href=https://use.fontawesome.com/releases/v5.1.0/css/all.css integrity=sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt crossorigin=anonymous>
+    <link href="../assets/css/vendor/lightbox.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Cormorant Unicase&subset=latin" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendor/loading-bar.css" />
+</head>
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script><script>
+window.addEventListener("load",function(){window.cookieconsent.initialise({palette:{popup:{background:"#8A7373"},button:{background:"#5d4239",color:"white"}},content:{message:"This website uses cookies."}})});</script>
+<body>
+    <nav class="navbar navbar-expand-md fixed-top ml-0  mt-xs-3 mr-xs-2">
+        <a class="navbar-brand" href="index.html"><img src="../assets/imgs/supporting/logo.jpg" class="pl-2" style="max-height: 40px;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExample05">
+            <ul class="navbar-nav ml-auto p-2">
+                <li class="nav-item active">
+                    <a class="nav-link" href="../" data-toggle="collapse" data-target="#navbarsExample05">Works</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="../about" data-toggle="collapse" data-target="#navbarsExample05">About</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="../contact" data-toggle="collapse" data-target="#navbarsExample05">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="barba-wrapper" class="wrapper">
+        <!--[if lt IE 8]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+<div class="barba-container" data-namespace="Contact">
+    <div class="container" id="main-content">
+        <div class="row justify-content-center vertical-center mt-3">
+            <div class="container mx-0 mt-3  px-0 ">
+                <div class="row px-0 mx-0 mt-5 ml-1">
+                    <div class="col-12 mx-auto text-center">
+                        <div id="recContent">
+                            <div class="ldBar label-center d-none" id="progress" style="width:30%;height:30%;margin:auto" data-value="100" data-preset="circle" data-stroke="#987d75"></div>
+                            <a href="#" onclick="startRec();"><i  id="mic" class="fas fa-microphone fa-5x text-center rounded-circle" style="color: #987d75;"></i></a>
+                            <h2 id="directions" class="text-center pt-3" style="color: #987d75;"><i>Click to record a message</i></h2>
+                            <h2 id="readyText" class="d-none text-center pt-3" style="color: #987d75;"><i>Get Ready!</i></h2>
+                            <h2 id="recText" class="d-none text-center pt-3" style="color: #987d75;"><i>Recording...</i></h2>
+                            <h2 id="mesText" class="d-none text-center pt-3 mb-3" style="color: #987d75;"><i>Your recording</i></h2>
+                            <ul class="pl-0" id="recordingsList" style="list-style: none;"></ul>
+                            <hr id="line">
+                            <div class="row justify-content-center">
+                                <div id="stopButton" class="d-none">
+                                    <div class="row justify-content-center">
+                                        <div class="col-3 mx-0 ">
+                                            <a href="#" onclick="stopRecAnimation()">
+                                <i class="fa fa-3x fa-stop" aria-hidden="true"  style="color: #987d75;"></i>
+                                <p style="color: #987d75; font-style: italic; ">stop</p>
+                              </a>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center mt-5">
+                                        <p style="color: #987d75;">Audio is now being recorded from your device.</p>
+                                    </div>
+                                </div>
+                                <div class="d-none" id="sendButton">
+                                    <div class="row mb-4">
+                                        <h4 style="color: #987d75; font-style: italic;">Would you like to send your message?</h4>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col mx-auto">
+                                            <a href="#" onclick="submitRec();">
+                                <i class="fa-3x fas fa-share-square" style="color: #987d75;"></i>
+                                <h4 class="pr-3" style="color: #987d75;">Send</h4>
+                              </a>
+                                        </div>
+                                        <div class="col mx-auto">
+                                            <a href="#" onclick="window.location = './contact.html'">
+                                <i class="fa-3x fas fa-ellipsis-h" style="color: #987d75;"></i>
+                                <h4 style="color: #987d75;">Start Over</h4>
+                              </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-none" id="thanks">
+
+                          <h2 style="color: #987d75;"><i>Thank you for your message.</i></h2>
+                          <hr>
+                          <h2 style="color: #987d75;"><i>You will be contacted in 2-3 days.</i></h2>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row d-none">
+                        <div class="col mx-auto">
+                            <iframe id="recorder" src="../recordings/index.html" height="400" width="700"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/script.min.js">
+    </script>
+    </div>
+    </div>
+    <!-- /barba container -->
+    </body>
+
+    </html>

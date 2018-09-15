@@ -157,7 +157,7 @@ module.exports = function(grunt) {
             },
             scripts: {
                 files: ['src/**/*.js'],
-                tasks: ['uglify']
+                tasks: ['uglify:dist']
             },
             pdfs: {
                 files: ['public/assets/pdfs/**/*.pdf'],

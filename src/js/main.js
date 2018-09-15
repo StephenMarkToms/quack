@@ -1,4 +1,3 @@
-
 $("html").easeScroll();
 
 
@@ -20,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
     }); //end ready
 
 
@@ -28,10 +26,94 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-  
-  
-  
-  
+
+function emailDesktop() {
+
+
+
+    var name = document.getElementById("desktop-name");
+
+    var email = document.getElementById("desktop-email");
+
+    var phone = document.getElementById("desktop-phone");
+    
+    var shoot = document.getElementById("desktop-shoot");
+    
+    var message = document.getElementById("desktop-message");
+
+    $.ajax({
+
+        type: 'post',
+
+        url: '../email/contact.php',
+
+        data: {
+
+            Name: name,
+            Email: email,
+            Phone: phone,
+            Shoot: shoot,
+            Message: message
+
+        },
+
+        success: function(response) {
+
+            $('#desktop-thanks').html("You data will be saved");
+
+        }
+
+    });
+
+    return false;
+
+
+
+
+
+}
+
+var sentEmail = false;
+
+function desktopEmail2(){
+
+
+    if(!sentEmail){
+
+        $('.desktop-form').on('submit', function(e) {
+            e.preventDefault();
+
+            var formData = {
+                'Name': $("#desktop-name").val(),
+                'Email': $("#desktop-email").val(),
+                'Phone': $("#desktop-phone").val(),
+                'Shoot': $("#desktop-shoot").val(),
+                'Message': $("#desktop-message").val(),
+            };
+
+            $.ajax({
+                url : "../email/contact.php",
+                type: "POST",
+                data: formData,
+                success: function (data) {
+                    //$("#form_output").html(data); $("#desktop-thanks").html(postresult);
+                    console.log('submitted data');
+                    $('.desktop-form').addClass('d-none');
+                    $('.desktop-thanks').removeClass('d-none');
+                },
+                error: function (jXHR, textStatus, errorThrown) {
+                    alert(errorThrown);
+                }
+            });
+        });
+
+        sentEmail = true;
+
+    }
+
+
+
+}
 
 
 
@@ -50,7 +132,7 @@ function scrollMagic() {
 
 
 
-     $('[animate-fade]').each(function(index) {
+    $('[animate-fade]').each(function(index) {
         var tl = new TimelineMax();
         tl.from(this, duration, animations[0]);
 
@@ -94,7 +176,7 @@ function scrollMagic() {
 
     });
 
-   
+
 
 
     $('[animate-fade-2]').each(function(index) {
@@ -128,7 +210,7 @@ function scrollMagic() {
 
     });
 
-   
+
 
     $("[animate-text-loop]").each(function(index) {
         var splitone = new SplitText(this, { type: "chars,words, lines" }),
@@ -188,15 +270,15 @@ function scrollMagic() {
     $('[animate-parallax]').each(function(index) {
 
         var pColorScene = new ScrollMagic.Scene({
-            triggerElement: '#main-content',
-            triggerHook: .5,
-            duration: '400%'
-        })
-        .setTween(TweenMax.from(this, .5, {y:'-200%', ease:Power0.easeNone}))
-        .addTo(controller);
+                triggerElement: '#main-content',
+                triggerHook: .5,
+                duration: '400%'
+            })
+            .setTween(TweenMax.from(this, .5, { y: '-200%', ease: Power0.easeNone }))
+            .addTo(controller);
 
     });
-    
+
 
 
 
@@ -258,7 +340,7 @@ function handleAnimations() {
             // The new Container is ready and attached to the DOM.
             console.log("enter");
             TweenMax.from("#main-content", .5, { delay: .5, alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false });
-            
+
             $("#header").removeClass("d-none");
             var mySplitText = new SplitText("#header", { type: "chars,words, lines" }),
                 tl = new TimelineLite({ delay: 0.5 });
@@ -273,8 +355,8 @@ function handleAnimations() {
             // The Transition has just finished.
             var container = document.querySelector('.about-hero-image');
 
-            setTimeout(function () {
-              container.classList.toggle('is-visible');
+            setTimeout(function() {
+                container.classList.toggle('is-visible');
             }, 500);
 
 
@@ -297,7 +379,7 @@ function handleAnimations() {
         onEnter: function() {
 
 
-            
+
 
         },
         onEnterCompleted: function() {
@@ -329,22 +411,22 @@ function handleAnimations() {
 
 
             var mySplitText = new SplitText(".desktop-hero-text", { type: "chars,words, lines" }),
-            tl = new TimelineLite({ delay: 1 });
+                tl = new TimelineLite({ delay: 1 });
             tl.staggerFrom(mySplitText.chars, 0.5, { y: 100, opacity: 0 }, 0.02);
 
             var mySplitText2 = new SplitText(".d-title", { type: "chars,words,lines" }),
-            t2 = new TimelineLite({ delay: .5 });
+                t2 = new TimelineLite({ delay: .5 });
             t2.staggerFrom(mySplitText2.chars, 0.8, { opacity: 0, scale: 0, y: 80, rotationX: 180, transformOrigin: "0% 50% -50", ease: Back.easeOut }, 0.01, "+=0");
 
             var mySplitText3 = new SplitText(".gallery-side-text", { type: "chars" }),
-            t3 = new TimelineLite({ delay: 1.4 });
+                t3 = new TimelineLite({ delay: 1.4 });
             t3.staggerFrom(mySplitText3.chars, 0.5, { y: 100, opacity: 0 }, 0.02);
 
-            
+
 
             TweenMax.from("#first-img", .75, { delay: 1, y: "+=30", alpha: 0, ease: Back.easeOut });
             TweenMax.from("#sec-img", .75, { delay: 1.5, y: "+=30", alpha: 0, ease: Back.easeOut });
-            
+
 
             scrollMagic();
 
@@ -366,9 +448,9 @@ function handleAnimations() {
         onEnter: function() {
 
             var mySplitText = new SplitText("#directions", { type: "chars,words, lines" }),
-            tl = new TimelineLite({ delay: 1 });
+                tl = new TimelineLite({ delay: 1 });
             tl.staggerFrom(mySplitText.chars, 0.5, { y: 100, opacity: 0 }, 0.02);
-            
+
             TweenMax.from("#mic", 1, { delay: .5, alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false });
             TweenMax.from("#line", 1, { delay: 1.5, width: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false });
 
@@ -491,49 +573,49 @@ function initBarba() {
 
 var intervalId;
 
-function recAnimation(){
+function recAnimation() {
 
     var firstLoop = true;
 
-    $("#directions").addClass('d-none');  
+    $("#directions").addClass('d-none');
     $("#readyText").removeClass('d-none');
-    
+
     $('#recorder')[0].contentWindow.startRecording();
 
     var i = 0;
-    intervalId = setInterval(function(){
+    intervalId = setInterval(function() {
 
-    if(firstLoop){
-        $("#stopButton").removeClass('d-none');
-    }
+        if (firstLoop) {
+            $("#stopButton").removeClass('d-none');
+        }
 
-    $("#readyText").addClass('d-none'); 
-    // $("#recText").removeClass('d-none');
+        $("#readyText").addClass('d-none');
+        // $("#recText").removeClass('d-none');
 
-    // var mySplitText = new SplitText("#recText", { type: "chars,words, lines" }),
-    //         tl = new TimelineLite({ delay: 1, repeat: -1, repeatDelay: 4});
-    //         tl.staggerFrom(mySplitText.chars, 1.3, { x: 20, autoAlpha:0 }, 0.02),
-    //         tl.staggerTo(mySplitText.chars, 1, {x: 0, autoAlpha: 0 }, 0.02),
-    //         tl.staggerTo(mySplitText.chars, 1, {autoAlpha: 1 }, 0.02);
+        // var mySplitText = new SplitText("#recText", { type: "chars,words, lines" }),
+        //         tl = new TimelineLite({ delay: 1, repeat: -1, repeatDelay: 4});
+        //         tl.staggerFrom(mySplitText.chars, 1.3, { x: 20, autoAlpha:0 }, 0.02),
+        //         tl.staggerTo(mySplitText.chars, 1, {x: 0, autoAlpha: 0 }, 0.02),
+        //         tl.staggerTo(mySplitText.chars, 1, {autoAlpha: 1 }, 0.02);
 
-    i += 3;
-    var bar1 = new ldBar("#progress");
-    var bar2 = document.getElementById('progress').ldBar;
-    bar1.set(i);
-    console.log(i);
+        i += 3;
+        var bar1 = new ldBar("#progress");
+        var bar2 = document.getElementById('progress').ldBar;
+        bar1.set(i);
+        console.log(i);
 
-    if(i > 100){
+        if (i > 100) {
 
-        stopRecAnimation();
+            stopRecAnimation();
 
-    }
+        }
 
 
-       
+
     }, 2400);
 }
 
-function submitRec(){
+function submitRec() {
 
     $("#recContent").addClass('d-none');
     $("#thanks").removeClass('d-none');
@@ -542,7 +624,7 @@ function submitRec(){
 }
 
 
-function stopRecAnimation(){
+function stopRecAnimation() {
 
     clearInterval(intervalId);
 
@@ -550,24 +632,32 @@ function stopRecAnimation(){
     $("#recText").addClass('d-none');
     $("#progress").addClass('d-none');
     $("#sendButton").removeClass('d-none');
-    $('#recorder')[0].contentWindow.stopRecording(); 
+    $('#recorder')[0].contentWindow.stopRecording();
     // $("#mesText").removeClass('d-none');
 
 
 }
 
 
-function startRec(){
+function startRec() {
 
 
     console.log("test");
 
-    TweenMax.to("#mic", .5, { delay: .5, alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false, onComplete:function(){ $("#mic").addClass('d-none'); $("#progress").removeClass('d-none'); } });
+    TweenMax.to("#mic", .5, {
+        delay: .5,
+        alpha: 0,
+        ease: Power3.easeInOut,
+        overwrite: false,
+        immediateRender: false,
+        onComplete: function() {
+            $("#mic").addClass('d-none');
+            $("#progress").removeClass('d-none');
+        }
+    });
     TweenMax.from("#progress", .5, { delay: 1, alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false, onComplete: recAnimation });
     TweenMax.to("#directions", .5, { delay: 1, alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false });
 
 
 
 }
-
-
