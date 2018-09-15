@@ -1,9 +1,27 @@
+
+//overwrite critical css
+.barba-container{
+
+    display: block;
+
+}
+
+.navbar{
+
+    display: flex;
+
+}
+
+#preloader{
+
+    display: none !important;
+
+}
+
 // ALWAYS THE LATEST BOOSTRAP
 @import '../../node_modules/bootstrap/scss/bootstrap-reboot';
 @import '../../node_modules/bootstrap/scss/bootstrap';
 @import '../../node_modules/bootstrap/scss/bootstrap-grid';
-@import url('https://fonts.googleapis.com/css?family=Amethysta|Libre+Baskerville|Ramaraja');
-
 
 @font-face {
 
