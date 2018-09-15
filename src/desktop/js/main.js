@@ -401,7 +401,7 @@ function handleAnimations() {
             //desktop
             $(".desktop-body").removeClass("d-none");
 
-            TweenMax.from(".desktop-portrait-hero", .75, { delay: .5, alpha: 0, y: "-=30", ease: Power3.easeInOut });
+            TweenMax.from(".desktop-hero", .75, { delay: .5, alpha: 0, y: "-=30", ease: Power3.easeInOut });
 
 
             var mySplitText = new SplitText(".desktop-hero-text", { type: "chars,words, lines" }),
