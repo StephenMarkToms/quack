@@ -348,6 +348,7 @@ function handleAnimations() {
             console.log("leave");
             TweenMax.to("#main-content", .5, { y: "-=40", alpha: 0, overwrite: false, immediateRender: false });
             scrollToTop();
+            pageView();
 
         },
         onLeaveCompleted: function() {
@@ -411,6 +412,7 @@ function handleAnimations() {
             console.log("leave");
             TweenMax.to("#main-content", .5, { y: "-=100", alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false });
             scrollToTop();
+            pageView();
 
         },
         onLeaveCompleted: function() {
@@ -458,6 +460,7 @@ function handleAnimations() {
             console.log("leave");
             TweenMax.to("#main-content", .5, { y: "+=30", alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false });
             scrollToTop();
+            pageView();
 
         },
         onLeaveCompleted: function() {
@@ -501,6 +504,7 @@ function handleAnimations() {
             console.log("leave");
             TweenMax.to("#main-content", .5, { y: "+=30", alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false });
             scrollToTop();
+            pageView();
 
         },
         onLeaveCompleted: function() {
@@ -692,6 +696,12 @@ function stopRecAnimation() {
     $('#recorder')[0].contentWindow.stopRecording();
     // $("#mesText").removeClass('d-none');
 
+
+}
+
+function pageView(){
+
+    gtag('event', window.location.href);
 
 }
 

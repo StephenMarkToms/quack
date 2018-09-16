@@ -2,7 +2,7 @@
 	"version": 3,
 	"file": "main.css",
 	"sources": [
-		"../../../../src/desktop/scss/main.scss",
+		"../../../../src/mobile/scss/main.scss",
 		"../../../../node_modules/bootstrap/scss/bootstrap-reboot.scss",
 		"../../../../node_modules/bootstrap/scss/_functions.scss",
 		"../../../../node_modules/bootstrap/scss/_variables.scss",

@@ -321,9 +321,9 @@ function handleAnimations() {
             $(".portraits-hero").removeClass("d-none");
             $(".couples-hero").removeClass("d-none");
             $(".weddings-hero").removeClass("d-none");
-            TweenMax.from(".portraits-hero", .75, { delay: .5, y: "+=50", alpha: 0, ease: Power3.easeInOut });
-            TweenMax.from(".couples-hero", .75, { delay: .7, y: "+=50", alpha: 0, ease: Power3.easeInOut });
-            TweenMax.from(".weddings-hero", .75, { delay: 1, y: "+=50", alpha: 0, ease: Power3.easeInOut });
+            TweenMax.from(".portraits-hero", .75, { delay: .5, y: "+=50", alpha: 0, ease: Power3.easeInOut, onComplete:function(){$(".portraits-hero").addClass("zoom-effect");} });
+            TweenMax.from(".couples-hero", .75, { delay: .7, y: "+=50", alpha: 0, ease: Power3.easeInOut, onComplete:function(){$(".couples-hero").addClass("zoom-effect");} });
+            TweenMax.from(".weddings-hero", .75, { delay: 1, y: "+=50", alpha: 0, ease: Power3.easeInOut, onComplete:function(){$(".weddings-hero").addClass("zoom-effect");} });
             var mySplitText = new SplitText(".portraits-hero p", { type: "chars,words, lines" }),
                 tl = new TimelineLite({ delay: 0.5 });
             tl.staggerFrom(mySplitText.chars, 0.5, { y: 100, opacity: 0 }, 0.02);
@@ -341,6 +341,9 @@ function handleAnimations() {
         },
         onEnterCompleted: function() {
             // The Transition has just finished.
+            // $(".portraits-hero").addClass("zoom-effect");
+            // $(".couples-hero").addClass("zoom-effect");
+            // $(".weddings-hero").addClass("zoom-effect");
 
         },
         onLeave: function() {
@@ -348,6 +351,7 @@ function handleAnimations() {
             console.log("leave");
             TweenMax.to("#main-content", .5, { y: "-=40", alpha: 0, overwrite: false, immediateRender: false });
             scrollToTop();
+            pageView();
 
         },
         onLeaveCompleted: function() {
@@ -411,6 +415,7 @@ function handleAnimations() {
             console.log("leave");
             TweenMax.to("#main-content", .5, { y: "-=100", alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false });
             scrollToTop();
+            pageView();
 
         },
         onLeaveCompleted: function() {
@@ -485,6 +490,7 @@ function handleAnimations() {
             console.log("leave");
             TweenMax.to("#main-content", .5, { y: "+=30", alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false });
             scrollToTop();
+            pageView();
 
         },
         onLeaveCompleted: function() {
@@ -528,6 +534,7 @@ function handleAnimations() {
             console.log("leave");
             TweenMax.to("#main-content", .5, { y: "+=30", alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false });
             scrollToTop();
+            pageView();
 
         },
         onLeaveCompleted: function() {
@@ -696,6 +703,13 @@ function recAnimation() {
 
 
     }, 2400);
+}
+
+
+function pageView(){
+
+    gtag('event', window.location.href);
+
 }
 
 function submitRec() {

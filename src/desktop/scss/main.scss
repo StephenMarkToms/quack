@@ -138,6 +138,22 @@ body {
 }
 
 
+.zoom-effect{
+
+    transition:all 0.5s ;
+    -webkit-transition:all 0.5s ;
+    -o-transition:all 0.5s ;
+    -moz-transition:all 0.5s ;
+
+}
+
+.zoom-effect:hover{
+
+    background-size: 60vh;
+
+}
+
+
 .about-hero-image {
 
  
