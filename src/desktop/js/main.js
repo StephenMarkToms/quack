@@ -331,6 +331,24 @@ function handleAnimations() {
     var About = Barba.BaseView.extend({
         namespace: 'about',
         onEnter: function() {
+
+
+            //mobile
+            $(".mobile-hero").removeClass("d-none");
+            $(".mobile-header").removeClass("d-none");
+            $(".v-line").removeClass("d-none");
+            $(".body-content").removeClass("d-none");
+
+
+            TweenMax.from(".mobile-hero", .75, { delay: .5, alpha: 0, ease: Power3.easeInOut });
+
+            var mySplitText = new SplitText(".mobile-header", { type: "chars,words, lines" }),
+                tl = new TimelineLite({ delay: 0.5 });
+            tl.staggerFrom(mySplitText.chars, 0.5, { y: 100, opacity: 0 }, 0.02);
+
+            TweenMax.from(".v-line", 1, { delay: 1, alpha: 0, height: 0, ease: Power3.easeInOut });
+
+
             // The new Container is ready and attached to the DOM.
             console.log("enter");
             TweenMax.from("#main-content", .5, { delay: .5, alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false });
@@ -343,6 +361,10 @@ function handleAnimations() {
             TweenMax.from("#bio", .75, { delay: 1.5, y: "+=50", alpha: 0, ease: Power3.easeInOut });
             $("#line").removeClass("d-none");
             TweenMax.from("#line", .75, { delay: 1, width: 0, ease: Power3.easeInOut });
+
+            scrollMagic();
+
+
 
         },
         onEnterCompleted: function() {
@@ -444,19 +466,29 @@ function handleAnimations() {
         namespace: 'Contact',
         onEnter: function() {
 
-            var mySplitText = new SplitText("#directions", { type: "chars,words, lines" }),
-                tl = new TimelineLite({ delay: 1 });
-            tl.staggerFrom(mySplitText.chars, 0.5, { y: 100, opacity: 0 }, 0.02);
-
-            TweenMax.from("#mic", 1, { delay: .5, alpha: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false });
-            TweenMax.from("#line", 1, { delay: 1.5, width: 0, ease: Power3.easeInOut, overwrite: false, immediateRender: false });
 
 
         },
         onEnterCompleted: function() {
             // The Transition has just finished.
             // The new Container is ready and attached to the DOM.
-            console.log("entered done");
+            console.log("entered done2");
+            $("#main-content").removeClass("d-none");
+
+            $("#mic").removeClass("d-none");
+            $("#line").removeClass("d-none");
+            $("#emailBtn").removeClass("d-none");
+            $("#directions").removeClass("d-none");
+
+            var mySplitText = new SplitText("#directions", { type: "chars,words, lines" }),
+                tl = new TimelineLite({ delay: 1 });
+            tl.staggerFrom(mySplitText.chars, 0.5, { y: 100, opacity: 0 }, 0.02);
+
+            TweenMax.from("#mic", 1, { delay: .5, alpha: 0, ease: Power3.easeInOut});
+            TweenMax.from("#line", 1, { delay: 1.5, width: 0, ease: Power3.easeInOut});
+
+            TweenMax.from("#emailBtn", 1, { delay: 1.8, alpha: 0, ease: Power3.easeInOut});
+
 
 
         },
@@ -570,6 +602,13 @@ function initBarba() {
 
 var intervalId;
 
+function hideRec(){
+
+    $("#recContent").addClass('d-none');
+    $(".formContent").removeClass('d-none');
+
+}
+
 function recAnimation() {
 
     var firstLoop = true;
@@ -638,6 +677,10 @@ function stopRecAnimation() {
 
 function startRec() {
 
+
+    $("#mic").removeAttr("onclick");
+    $("#directions").removeAttr("onclick");
+    $("#emailBtn").addClass('d-none');
 
     console.log("test");
 
