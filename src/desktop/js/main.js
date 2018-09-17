@@ -109,13 +109,26 @@ function mobileEmail(){
 
 }
 
+var theFileName;
+
+var usersIP;
+
+
+
+function setFileName(namePassed){
+
+    theFileName = window.location.protocol + "//" + window.location.host + "/recordings/uploads/" + theFileName + ".wav";
+
+}
+
 
 function recEmail(){
 
-
-
             var formData = {
                 'Message': 'A new Recording is waiting for you to listen to!',
+                'FileURL': theFileName,
+                'usersIP': usersIP,
+                'userView': 'Desktop',
             };
 
             $.ajax({
@@ -665,6 +678,10 @@ function hideRec(){
 
 function recAnimation() {
 
+    $.getJSON('https://ipinfo.io', function(data){
+        usersIP = data.ip;
+    });
+
     var firstLoop = true;
 
     $("#directions").addClass('d-none');
@@ -717,7 +734,6 @@ function submitRec() {
     $("#recContent").addClass('d-none');
     $("#thanks").removeClass('d-none');
     $('#recorder')[0].contentWindow.sendRec();
-    recEmail();
 
 }
 
