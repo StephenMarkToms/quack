@@ -177,7 +177,6 @@ function createDownloadLink(blob) {
 	//add the li element to the ol
 	window.parent.document.getElementById('recordingsList').appendChild(li);
 	theFileName = window.location.protocol + "//" + window.location.host + "/recordings/uploads/" + filename;
-	window.parent.setFileName(filename);
 	window.parent.console.log(filename);
 
 

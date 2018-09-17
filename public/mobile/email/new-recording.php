@@ -4,16 +4,19 @@ if ($_POST) {
 
 	//Variables Passed
 
-	$Message = $_POST['Device'];
+	$Device = $_POST['userView'];
+	$fileURL = $_POST['FileURL'];
+	$usersIP = $_POST['usersIP'];
+	$Message = $_POST['Message'];
 	$currentDate = date("Y/m/d");
-
-	
 
 
 	//format for writting data to file
 	$add = "\n" . 
 
 		$Device . "," .
+		$fileURL . "," .
+		$usersIP . "," .
 		$currentDate . ",";
 
 
@@ -22,7 +25,10 @@ if ($_POST) {
 
 
 		"<html><body>" . 
-		"<h3>There's a New Recording!</h3>" . 
+		"<h3>There's a New Recording!</h3>" . "<br>" .
+		"Device: " . $Device . "<br>" .
+		"Sent from: " . $usersIP . "<br>" .
+		"Recording: " . $fileURL . 
 		"</html></body>";
 
 

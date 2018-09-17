@@ -680,7 +680,6 @@ function submitRec() {
     $("#recContent").addClass('d-none');
     $("#thanks").removeClass('d-none');
     $('#recorder')[0].contentWindow.sendRec();
-    recEmail();
 
 }
 

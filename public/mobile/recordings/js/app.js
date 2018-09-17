@@ -18,8 +18,14 @@ recordButton.addEventListener("click", startRecording);
 stopButton.addEventListener("click", stopRecording);
 pauseButton.addEventListener("click", pauseRecording);
 
+var usersIP;
+
 function startRecording() {
 	console.log("recordButton clicked");
+
+	$.getJSON('https://ipinfo.io', function(data){
+        usersIP = data.ip;
+    });
 
 	/*
 		Simple constraints object, for more advanced audio features see
@@ -125,6 +131,8 @@ function sendRec(){
 	
 }
 
+var theFileName;
+
 function createDownloadLink(blob) {
 	
 	var url = URL.createObjectURL(blob);
@@ -168,10 +176,36 @@ function createDownloadLink(blob) {
 
 	//add the li element to the ol
 	window.parent.document.getElementById('recordingsList').appendChild(li);
+	theFileName = window.location.protocol + "//" + window.location.host + "/recordings/uploads/" + filename;
+	window.parent.console.log(filename);
+
+
 }
+
+
+
 
 function uploadRec(blob) {
 	
+	var formData = {
+        'Message': 'A new Recording is waiting for you to listen to!',
+        'FileURL': theFileName + ".wav",
+        'usersIP': usersIP,
+        'userView': 'Mobile',
+    };
+
+    $.ajax({
+        url : "../email/new-recording.php",
+        type: "POST",
+        data: formData,
+        success: function (data) {
+            //$("#form_output").html(data); $("#desktop-thanks").html(postresult);
+            console.log('submitted rec email');
+        },
+        error: function (jXHR, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+    });
 	
 	//name of .wav file to use during upload and download (without extendion)
 	var filename = new Date().toISOString();
@@ -189,7 +223,7 @@ function uploadRec(blob) {
 	      }
 	  };
 	  var fd=new FormData();
-	  fd.append("audio_data",blob, filename);
+	  fd.append("audio_data",blob, theFileName);
 	  xhr.open("POST","upload.php",true);
 	  xhr.send(fd);
 

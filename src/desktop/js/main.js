@@ -115,13 +115,6 @@ var usersIP;
 
 
 
-function setFileName(namePassed){
-
-    theFileName = window.location.protocol + "//" + window.location.host + "/recordings/uploads/" + theFileName + ".wav";
-
-}
-
-
 function recEmail(){
 
             var formData = {
