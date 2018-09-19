@@ -5,7 +5,7 @@ include "header.html"
             <div class="container mx-0 mt-3  px-0 ">
                 <div class="row px-0 mx-0 mt-5 ml-1">
                     <div class="col-12 mx-auto text-center">
-                        <div id="recContent">
+                        <div id="recContent" class="d-none">
                             <div class="ldBar label-center d-none" id="progress" style="width:30%;height:30%;margin:auto" data-value="100" data-preset="circle" data-stroke="#987d75"></div>
                             <a href="#" onclick="startRec();" id="mic" class="d-none"><i   class="fas fa-microphone fa-5x text-center rounded-circle" style="color: #987d75;"></i></a>
                             <a href="#" onclick="startRec();" id="directions" class="d-none"><h2  class="text-center pt-3" style="color: #987d75;"><i>Click to record a message</i></h2></a>
@@ -56,7 +56,7 @@ include "header.html"
                             </div>
                         </div>
 
-                        <div class="formContent mt-5 pt-3 d-none">
+                        <div class="formContent mt-5 pt-3">
                             <div class="row mx-0 mb-5 pb-5">
                         <div class="col mx-4 mb-5 pb-5" >
                             <form class="mobile-form" onclick="mobileEmail();" >
