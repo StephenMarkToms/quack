@@ -103,6 +103,15 @@ module.exports = function(grunt) {
                 }
             },
 
+            Presets: {
+                cwd: 'src/desktop/pages/presets',
+                src: ['*.html', '*.php'],
+                dest: './public/desktop/presets',
+                options: {
+                    includePath: 'src/desktop/partials/'
+                }
+            },
+
             Weddings: {
                 cwd: 'src/desktop/pages/weddings',
                 src: ['*.html', '*.php'],
@@ -231,8 +240,8 @@ module.exports = function(grunt) {
                 tasks: ['uglify:desktop', 'uglify:mobile']
             },
             html: {
-                files: ['src/desktop/partials/**/**/*.html', 'src/desktop/**/*.html', 'src/mobile/partials/**/**/*.html', 'src/mobile/**/*.html' ],
-                tasks: ['uglify:desktop', 'includes:Index', 'includes:Couples', 'includes:Portraits', 'includes:Weddings', 'includes:About', 'includes:Contact', 'uglify:desktop', 'includes:Indexmobile', 'includes:Couplesmobile', 'includes:Portraitsmobile', 'includes:Weddingsmobile', 'includes:Aboutmobile', 'includes:Contactmobile']
+                files: ['src/desktop/partials/**/**/*.html', 'src/desktop/**/*.html', 'src/desktop/**/*.php', 'src/mobile/partials/**/**/*.html', 'src/mobile/**/*.html' ],
+                tasks: ['uglify:desktop', 'includes:Index',  'includes:Presets', 'includes:Couples', 'includes:Portraits', 'includes:Weddings', 'includes:About', 'includes:Contact', 'uglify:desktop', 'includes:Indexmobile', 'includes:Couplesmobile', 'includes:Portraitsmobile', 'includes:Weddingsmobile', 'includes:Aboutmobile', 'includes:Contactmobile']
 
             }
             
